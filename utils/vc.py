@@ -38,7 +38,7 @@ class MusicPlayer(object):
             else:
                 pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n"
             pl += "\n".join([
-                f"**{i}**. **[{x.audio.title}]({x.link})**"
+                f"**{i}**. **{x.audio.title}**"
                 for i, x in enumerate(playlist)
             ])
         if self.msg.get('playlist') is not None:
