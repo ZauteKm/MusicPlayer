@@ -1,6 +1,7 @@
 # Telegram Voice Chat Bot with Channel Support.
 
-A Telegram Bot to Play Audio in Voice Chats.
+- A Telegram Bot to Play Audio in Voice Chats.
+- Radio Support in Group/Channel.
 
 ## Deploy to Heroku
 
