@@ -1,4 +1,4 @@
-# VC Music Player - v2
+# Music Player - v2
 
 - An Telegram Bot to Play Radio/Music in Channel or Group Voice Chats.
 - 
