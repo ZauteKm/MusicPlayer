@@ -1,1 +1,1 @@
-worker: python3 main.py
+InFoJosTel: python3 main.py
