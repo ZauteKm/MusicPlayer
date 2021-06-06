@@ -1,17 +1,18 @@
 {
-  "name": "Telegram Voice Chat Music Player Bot ",
-  "description": "Telegram Bot to Play Audio in Telegram Voice Chats",
-  "repository": "https://github.com/ZauteKm/tgVC-MusicPlayer",
+  "name": "VC Music Player",
+  "description": "An Telegram Bot Maded By Zaute to Play Nonstop Radio/Music in Telegram Voice Chats",
+  "repository": "https://github.com/InFoJosTel/VCMusicPlayer",
+  "logo": "https://telegra.ph/file/a247cefef0c9fd6308ee2.jpg",
   "keywords": [
     "telegram",
-    "bot",
+    "radiov2",
     "voicechat",
     "music",
-    "python",
+    "radio",
     "pyrogram",
     "pytgcalls",
     "tgcalls",
-    "voip"
+    "radioplayer"
   ],
   "env": {
     "API_ID": {
@@ -27,24 +28,24 @@
       "required": true
     },
     "SESSION_STRING": {
-      "description": "Session string, read the README to learn how to export it with Pyrogram",
+      "description": "Session string, use @UsePyrogramBot to generate pyrogram session string",
       "required": true
     },
     "CHAT": {
-      "description": "ID of Channel or Group where the Bot plays Music",
+      "description": "ID of Channel or Group where the Bot plays Radio/Music",
       "required": true
     },
     "LOG_GROUP": {
-      "description": "ID of the group to send playlist If CHAT is a Group, if channel thenleave blank",
+      "description": "ID of the group to send playlist if CHAT is a Group, if channel then leave blank",
       "required": false
     },
     "ADMINS": {
-      "description": "ID of Users who can use Admin commands(for multiple users seperated by space)",
+      "description": "ID of Users who can use Admin commands (for multiple users seperated by space)",
       "required": true
     },
     "STREAM_URL": {
       "description": "URL of Radio station to stream when the bot starts",
-      "value": "https://eu10.fastcast4u.com/clubfmuae",
+      "value": "https://radioindia.net/radio/hungamanow/icecast.audio",
       "required": false
 }
   },
