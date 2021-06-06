@@ -1,3 +1,21 @@
+"""
+VC Music Player, Telegram Voice Chat Userbot
+Copyright (C) 2021  Zaute Km | TGVCSETS
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>
+"""
+
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, emoji
 from datetime import datetime, timedelta
@@ -14,13 +32,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         start_time = mp.start_time
         playlist = mp.playlist
         if not start_time:
-            await query.edit_message_text(f"{emoji.PLAY_BUTTON} Nothing Playing")
+            await query.edit_message_text(f"{emoji.PLAY_BUTTON} **Nothing Playing!**")
             return
         utcnow = datetime.utcnow().replace(microsecond=0)
         if mp.msg.get('current') is not None:
             playlist=mp.playlist
             if not playlist:
-                pl = f"{emoji.NO_ENTRY} empty playlist"
+                pl = f"{emoji.NO_ENTRY} **Empty Playlist!**"
             else:
                 if len(playlist) == 1:
                     pl = f"{emoji.REPEAT_SINGLE_BUTTON} **Playlist**:\n"
@@ -39,7 +57,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     [
                         [
                             InlineKeyboardButton("🔄", callback_data="replay"),
-                            InlineKeyboardButton("⏯", callback_data="pause"),
+                            InlineKeyboardButton("⏸", callback_data="pause"),
                             InlineKeyboardButton("⏩", callback_data="skip")
                             
                         ],
@@ -52,7 +70,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await mp.update_start_time(reset=True)
         playlist = mp.playlist
         if not playlist:
-            pl = f"{emoji.NO_ENTRY} empty playlist"
+            pl = f"{emoji.NO_ENTRY} **Empty Playlist!**"
         else:
             if len(playlist) == 1:
                 pl = f"{emoji.REPEAT_SINGLE_BUTTON} **Playlist**:\n"
@@ -62,12 +80,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 f"**{i}**. **{x.audio.title}**"
                 for i, x in enumerate(playlist)
                 ])
-        reply = await query.edit_message_text(f"{emoji.PLAY_OR_PAUSE_BUTTON} Paused\n\n{pl}",
+        reply = await query.edit_message_text(f"{emoji.PLAY_OR_PAUSE_BUTTON} **Paused Playing!**\n\n{pl}",
         reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton("🔄", callback_data="replay"),
-                            InlineKeyboardButton("⏯", callback_data="resume"),
+                            InlineKeyboardButton("▶️", callback_data="resume"),
                             InlineKeyboardButton("⏩", callback_data="skip")
                             
                         ],
@@ -80,7 +98,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         mp.group_call.resume_playout()
         playlist=mp.playlist
         if not playlist:
-            pl = f"{emoji.NO_ENTRY} empty playlist"
+            pl = f"{emoji.NO_ENTRY} **Empty Playlist!**"
         else:
             if len(playlist) == 1:
                 pl = f"{emoji.REPEAT_SINGLE_BUTTON} **Playlist**:\n"
@@ -90,12 +108,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 f"**{i}**. **{x.audio.title}**"
                 for i, x in enumerate(playlist)
                 ])
-        await query.edit_message_text(f"{emoji.PLAY_OR_PAUSE_BUTTON} Resumed\n\n{pl}",
+        await query.edit_message_text(f"{emoji.PLAY_OR_PAUSE_BUTTON} **Resumed Playing!**\n\n{pl}",
         reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton("🔄", callback_data="replay"),
-                            InlineKeyboardButton("⏯", callback_data="pause"),
+                            InlineKeyboardButton("⏸", callback_data="pause"),
                             InlineKeyboardButton("⏩", callback_data="skip")
                             
                         ],
@@ -107,7 +125,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         playlist = mp.playlist
         await mp.skip_current_playing()
         if not playlist:
-            pl = f"{emoji.NO_ENTRY} empty playlist"
+            pl = f"{emoji.NO_ENTRY} **Empty Playlist!**"
         else:
             if len(playlist) == 1:
                 pl = f"{emoji.REPEAT_SINGLE_BUTTON} **Playlist**:\n"
@@ -119,12 +137,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 ])
 
         try:
-            await query.edit_message_text(f"{emoji.PLAY_OR_PAUSE_BUTTON} Skipped\n\n{pl}",
+            await query.edit_message_text(f"⏭ **Skipped Track!**\n\n{pl}",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton("🔄", callback_data="replay"),
-                        InlineKeyboardButton("⏯", callback_data="pause"),
+                        InlineKeyboardButton("⏸", callback_data="pause"),
                         InlineKeyboardButton("⏩", callback_data="skip")
                             
                     ],
@@ -134,5 +152,5 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except:
             pass
     elif query.data=="help":
-        await query.edit_message_text("Just sent an audio file to play. You can use @DeezerMusicBot in inline mode to get audio file🤷🏼‍♂️\nUse /help to know available commands.")
+        await query.edit_message_text("🙋‍♂️ **Hi Bruh**, \nJust Send Me An Audio File To Play. You Can Use @ZKSongBot To Get Audio Files! 😌\n\nCheck /help To Know More ...")
 
