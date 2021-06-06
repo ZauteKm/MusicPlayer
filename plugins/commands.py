@@ -1,48 +1,69 @@
+"""
+VC Music Player, Telegram Voice Chat Userbot
+Copyright (C) 2021  Zaute Km | TGVCSETS
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>
+"""
+
+
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import Client, filters
 
 
 
-HOME_TEXT = "Hello, [{}](tg://user?id={})\n\n I am Music Player bot which plays music in Channels and Groups 24*7"
-HELP = """**Common Commands**:
+HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm **Voice Chat Music/Radio Player Bot** \nI Can Play Radio/Stream Music In Channels & Groups 24x7 Nonstop."
+HELP = """🏷️ **Need Help?** 🤔
+Please Subscribe ❤️ @ZauteKm.
 
-**/play**  Reply with an audio to play/queue it, or show playlist
-**/player**  Show current playing time of current track
-**/help** Show help for commands
-**/playlist** Shows the playlist.
+🏷️ **Common Commands**:
+\u2022 `/play` reply to an audio to play or queue it
+\u2022 `/help` shows help for commands
+\u2022 `/playlist` shows the playlist
+\u2022 `/current` shows playing time of current track
+\u2022 `/song` [song name] download the song as audio
 
-**Admin Commands**:
-**/skip** [n] ...  Skip current or n where n >= 2
-**/join**  Join voice chat of current group
-**/leave**  Leave current voice chat
-**/vc**  Check which VC is joined
-**/stop**  Stop playing
-**/radio** Start Radio
-**/stopradio** Stops Radio Stream
-**/replay**  Play from the beginning
-**/clean** Remove unused RAW PCM files
-**/pause** Pause playing
-**/resume** Resume playing
-**/mute**  Mute the VC userbot
-**/unmute**  Unmute the VC userbot
-**/restart** Restarts the Bot
+🏷️ **Admin Commands**:
+\u2022 `/skip` [n] skip current or n where n >= 2
+\u2022 `/join` join voice chat of current group
+\u2022 `/leave` leave current voice chat
+\u2022 `/vc` check which VC is joined
+\u2022 `/stop` stop playing music
+\u2022 `/radio` start radio stream
+\u2022 `/stopradio` stop radio stream
+\u2022 `/replay` play from the beginning
+\u2022 `/clean` remove unused RAW PCM files
+\u2022 `/pause` pause playing music
+\u2022 `/resume` resume playing music
+\u2022 `/mute` mute the VC userbot
+\u2022 `/unmute` unmute the VC userbot
+\u2022 `/restart` restart the bot
 """
-
 
 
 @Client.on_message(filters.command('start'))
 async def start(client, message):
     buttons = [
         [
-        InlineKeyboardButton('Support Channel', url='https://t.me/ZauteKm'),
-        InlineKeyboardButton('Support Group', url='https://t.me/joinchat/7gSUxv6vgQE3M2Fl'),
+        InlineKeyboardButton('🗣️ Feedback', url='https://t.me/InFoJosTelGroup'),
+        InlineKeyboardButton('Channel 📢', url='https://t.me/InFoJosTel'),
     ],
     [
-        InlineKeyboardButton('Bugs?', url='https://t.me/zautebot'),
-        InlineKeyboardButton('Source', url='https://github.com/ZauteKm/tgvc-musicplayer'),
+        InlineKeyboardButton('🤖 Bot Lists', url='https://t.me/TG_BotList/37'),
+        InlineKeyboardButton('Music 👨‍🎤', url='https://t.me/joinchat/7gSUxv6vgQE3M2Fl'),
     ],
     [
-        InlineKeyboardButton('Help', callback_data='help'),
+        InlineKeyboardButton('⚜️ Help & Information ⚜️', callback_data='help'),
         
     ]
     ]
