@@ -1,12 +1,12 @@
-# Telegram Voice Chat Bot with Channel Support.
+# VC Music Player - v2
 
 - An Telegram Bot to Play Radio/Music in Channel or Group Voice Chats.
 - 
 ## Deploy to Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ZauteKm/tgvc-musicplayer)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/InFoJosTel/VCMusicPlayer)
 
-# Heroku Vars:
+# Configs Vars:
 1. `API_ID` : Get From my.telegram.org
 2. `API_HASH` : Get from my.telegram.org
 3. `BOT_TOKEN` : @Botfather
