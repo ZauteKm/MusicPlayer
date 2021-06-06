@@ -7,11 +7,11 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/InFoJosTel/VCMusicPlayer)
 
 # Configs Vars:
-1. `API_ID` : Get From my.telegram.org
-2. `API_HASH` : Get from my.telegram.org
-3. `BOT_TOKEN` : @Botfather
-4. `SESSION_STRING` : Generate From here [![GenerateStringName](https://img.shields.io/badge/repl.it-generateStringName-yellowgreen)](https://replit.com/@ZauteKm/generate-pyrogram-session-string#main.py)
-5. `CHAT` : ID of Channel/Group where the bot plays Music.
+1. `API_ID` : Get From [my.telegram.org](https://my.telegram.org) or [@UseTGzKBot](https://telegram.dog/UseTGzKBot).
+2. `API_HASH` : Get from [my.telegram.org](https://my.telegram.org) or [@UseTGzKBot](https://telegram.dog/UseTGzKBot).
+3. `BOT_TOKEN` : [@Botfather](https://t.me/BotFather).
+4. `SESSION_STRING` : Generate From here [![GenerateStringName](https://img.shields.io/badge/repl.it-generateStringName-yellowgreen)](https://replit.com/@ZauteKm/GenerateStringSession)
+5. `CHAT` : ID of Channel/Group where the bot plays Music. Channel ID Get From [@UseTGidBot](https://t.me/UseTGidBot).
 6. `LOG_GROUP` : Group to send Playlist, if CHAT is a Group
 7. `ADMINS` : ID of users who can use admin commands.
 8. `STREAM_URL` : Stream URL of radio station to stream when the bot starts or with /radio command.
