@@ -1,3 +1,21 @@
+"""
+VC Music Player, Telegram Voice Chat Userbot
+Copyright (C) 2021  Zaute Km | TGVCSETS
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>
+"""
+
 import os
 from config import Config
 from datetime import datetime, timedelta
@@ -34,19 +52,19 @@ async def play_track(client, m: Message):
         m_audio = m.reply_to_message
     else:
         chat_id=m.from_user.id
-        await client.send_message(text="You Didn't gave me anything to play. Send me a audio file or reply /play to an audio file.", chat_id=chat_id)
+        await client.send_message(text="You Didn't Gave Me Anything To Play. Send Me An Audio File or Reply /play To An Audio File!", chat_id=chat_id)
         if LOG_GROUP:
             await mp.send_playlist()
         return
     if playlist and playlist[-1].audio.file_unique_id \
             == m_audio.audio.file_unique_id:
-        await m.reply_text(f"{emoji.ROBOT} already added")
+        await m.reply_text(f"{emoji.ROBOT} **Already Added!**")
         return
     # add to playlist
     playlist.append(m_audio)
     if len(playlist) == 1:
         m_status = await m.reply_text(
-            f"{emoji.INBOX_TRAY} Downloading and transcoding..."
+            f"{emoji.INBOX_TRAY} **Downloading & Transcoding...**"
         )
         await mp.download_audio(playlist[0])
         group_call.input_filename = os.path.join(
@@ -58,14 +76,14 @@ async def play_track(client, m: Message):
         await m_status.delete()
         print(f"- START PLAYING: {playlist[0].audio.title}")
     if not playlist:
-        pl = f"{emoji.NO_ENTRY} empty playlist"
+        pl = f"{emoji.NO_ENTRY} **Empty Playlist!**"
     else:
         if len(playlist) == 1:
             pl = f"{emoji.REPEAT_SINGLE_BUTTON} **Playlist**:\n"
         else:
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n"
         pl += "\n".join([
-            f"**{i}**. **[{x.audio.title}]({x.link})**"
+            f"**{i}**. **{x.audio.title}**"
             for i, x in enumerate(playlist)
             ])
     await m.reply_text(pl)
@@ -77,12 +95,12 @@ async def play_track(client, m: Message):
         await mp.send_playlist()
 
 
-@Client.on_message(current_vc & filters.command("player"))
+@Client.on_message(current_vc & filters.command("current"))
 async def show_current_playing_time(_, m: Message):
     start_time = mp.start_time
     playlist = mp.playlist
     if not start_time:
-        await m.reply_text(f"{emoji.PLAY_BUTTON} Nothing Playing")
+        await m.reply_text(f"{emoji.PLAY_BUTTON} **Nothing Playing!**")
         return
     utcnow = datetime.utcnow().replace(microsecond=0)
     if mp.msg.get('current') is not None:
@@ -111,14 +129,14 @@ async def skip_track(_, m: Message):
         await mp.skip_current_playing()
         playlist = mp.playlist
         if not playlist:
-            pl = f"{emoji.NO_ENTRY} empty playlist"
+            pl = f"{emoji.NO_ENTRY} **Empty Playlist!**"
         else:
             if len(playlist) == 1:
                 pl = f"{emoji.REPEAT_SINGLE_BUTTON} **Playlist**:\n"
             else:
                 pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n"
             pl += "\n".join([
-                f"**{i}**. **[{x.audio.title}]({x.link})**"
+                f"**{i}**. **{x.audio.title}**"
                 for i, x in enumerate(playlist)
                 ])
         await m.reply_text(pl)
@@ -137,20 +155,20 @@ async def skip_track(_, m: Message):
                     text.append(f"{emoji.CROSS_MARK} {i}")
             await m.reply_text("\n".join(text))
             if not playlist:
-                pl = f"{emoji.NO_ENTRY} empty playlist"
+                pl = f"{emoji.NO_ENTRY} **Empty Playlist!**"
             else:
                 if len(playlist) == 1:
                     pl = f"{emoji.REPEAT_SINGLE_BUTTON} **Playlist**:\n"
                 else:
                     pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n"
                 pl += "\n".join([
-                    f"**{i}**. **[{x.audio.title}]({x.link})**"
+                    f"**{i}**. **{x.audio.title}**"
                     for i, x in enumerate(playlist)])
             await m.reply_text(pl)
             if LOG_GROUP:
                 await mp.send_playlist()
         except (ValueError, TypeError):
-            await m.reply_text(f"{emoji.NO_ENTRY} Invalid input",
+            await m.reply_text(f"{emoji.NO_ENTRY} **Invalid Input!**",
                                        disable_web_page_preview=True)
 
 
@@ -158,12 +176,12 @@ async def skip_track(_, m: Message):
 async def join_group_call(client, m: Message):
     group_call = mp.group_call
     if group_call.is_connected:
-        await m.reply_text(f"{emoji.ROBOT} Already joined voice chat")
+        await m.reply_text(f"{emoji.ROBOT} **Already Joined VC!**")
         return
     await mp.start_call()
     #await group_call.start(CHAT)
     chat = await client.get_chat(CHAT)
-    await m.reply_text(f"Succesfully Joined Voice Chat in {chat.title}")
+    await m.reply_text(f"**Succesfully Joined Voice Chat In {chat.title}!**")
 
 
 @Client.on_message(current_vc
@@ -173,7 +191,7 @@ async def leave_voice_chat(_, m: Message):
     mp.playlist.clear()
     group_call.input_filename = ''
     await group_call.stop()
-    await m.reply_text("Left the VoiceChat")
+    await m.reply_text("{emoji.ROBOT} **Left From The VC!**")
 
 
 @Client.on_message(filters.command("vc") & filters.user(ADMINS))
@@ -183,12 +201,12 @@ async def list_voice_chat(client, m: Message):
         chat_id = int("-100" + str(group_call.full_chat.id))
         chat = await client.get_chat(chat_id)
         await m.reply_text(
-            f"{emoji.MUSICAL_NOTES} **Currently in the voice chat**:\n"
+            f"{emoji.MUSICAL_NOTES} **Currently In**:\n"
             f"- **{chat.title}**"
         )
     else:
         await m.reply_text(emoji.NO_ENTRY
-                                   + "Didn't join any voice chat yet")
+                                   + "**Didn't Join Any VC Yet!**")
 
 
 @Client.on_message(current_vc
@@ -196,7 +214,7 @@ async def list_voice_chat(client, m: Message):
 async def stop_playing(_, m: Message):
     group_call = mp.group_call
     group_call.stop_playout()
-    await m.reply_text(f"{emoji.STOP_BUTTON} Stopped playing")
+    await m.reply_text(f"{emoji.STOP_BUTTON} **Stopped Playing!**")
     await mp.update_start_time(reset=True)
     mp.playlist.clear()
 
@@ -211,7 +229,7 @@ async def restart_playing(_, m: Message):
     await mp.update_start_time()
     await m.reply_text(
         f"{emoji.COUNTERCLOCKWISE_ARROWS_BUTTON}  "
-        "Playing from the beginning..."
+        "**Playing From The Beginning...**"
     )
 
 
@@ -220,7 +238,7 @@ async def restart_playing(_, m: Message):
 async def pause_playing(_, m: Message):
     mp.group_call.pause_playout()
     await mp.update_start_time(reset=True)
-    reply = await m.reply_text(f"{emoji.PLAY_OR_PAUSE_BUTTON} Paused",
+    reply = await m.reply_text(f"{emoji.PLAY_OR_PAUSE_BUTTON} **Paused Playing!**",
                                quote=False)
     mp.msg['pause'] = reply
 
@@ -230,7 +248,7 @@ async def pause_playing(_, m: Message):
                    & filters.command("resume") & filters.user(ADMINS))
 async def resume_playing(_, m: Message):
     mp.group_call.resume_playout()
-    await m.reply_text(f"{emoji.PLAY_OR_PAUSE_BUTTON} Resumed",
+    await m.reply_text(f"{emoji.PLAY_OR_PAUSE_BUTTON} **Resumed Playing!**",
                                quote=False)
     if mp.msg.get('pause') is not None:
         await mp.msg['pause'].delete()
@@ -250,7 +268,7 @@ async def clean_raw_pcm(client, m: Message):
             if fn.endswith(".raw"):
                 count += 1
                 os.remove(os.path.join(download_dir, fn))
-    await m.reply_text(f"{emoji.WASTEBASKET} Cleaned {count} files")
+    await m.reply_text(f"{emoji.WASTEBASKET} **Cleaned {count} Files!**")
 
 
 @Client.on_message(current_vc
@@ -258,7 +276,7 @@ async def clean_raw_pcm(client, m: Message):
 async def mute(_, m: Message):
     group_call = mp.group_call
     group_call.set_is_mute(True)
-    await m.reply_text(f"{emoji.MUTED_SPEAKER} Muted")
+    await m.reply_text(f"{emoji.MUTED_SPEAKER} **User Muted!**")
 
 
 @Client.on_message(current_vc
@@ -266,20 +284,20 @@ async def mute(_, m: Message):
 async def unmute(_, m: Message):
     group_call = mp.group_call
     group_call.set_is_mute(False)
-    await m.reply_text(f"{emoji.SPEAKER_MEDIUM_VOLUME} Unmuted")
+    await m.reply_text(f"{emoji.SPEAKER_MEDIUM_VOLUME} **User Unmuted!**")
 
 @Client.on_message(filters.command("playlist"))
 async def playlist(_, m: Message):
     playlist = mp.playlist
     if not playlist:
-        pl = f"{emoji.NO_ENTRY} empty playlist"
+        pl = f"{emoji.NO_ENTRY} **Empty Playlist!**"
     else:
         if len(playlist) == 1:
             pl = f"{emoji.REPEAT_SINGLE_BUTTON} **Playlist**:\n"
         else:
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n"
         pl += "\n".join([
-            f"**{i}**. **[{x.audio.title}]({x.link})**"
+            f"**{i}**. **{x.audio.title}**"
             for i, x in enumerate(playlist)
             ])
     await m.reply_text(pl)
