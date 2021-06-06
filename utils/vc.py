@@ -1,3 +1,21 @@
+"""
+RadioPlayerV2, Telegram Voice Chat Userbot
+Copyright (C) 2021  Zaute Km <https://telegram.dog/ZauteKm>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>
+"""
+
 import os
 from datetime import datetime
 from config import Config
@@ -31,14 +49,14 @@ class MusicPlayer(object):
     async def send_playlist(self):
         playlist = self.playlist
         if not playlist:
-            pl = f"{emoji.NO_ENTRY} Empty playlist"
+            pl = f"{emoji.NO_ENTRY} **Empty Playlist!**"
         else:
             if len(playlist) == 1:
                 pl = f"{emoji.REPEAT_SINGLE_BUTTON} **Playlist**:\n"
             else:
                 pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n"
             pl += "\n".join([
-                f"**{i}**. **[{x.audio.title}](https://t.me/ZauteKm?voicechat)**"
+                f"**{i}**. **{x.audio.title}**"
                 for i, x in enumerate(playlist)
             ])
         if self.msg.get('playlist') is not None:
