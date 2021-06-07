@@ -60,7 +60,7 @@ $ python3 main.py
 ## License
 ```sh
 VC Music Player, Telegram Voice Chat Userbot
-Copyright (C) 2021  Zaute Km | TGVCSETS
+Copyright (C) 2021  Zaute Km
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
