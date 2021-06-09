@@ -1,7 +1,14 @@
 # Music Player - v2
 
 - An Telegram Bot to Play Radio/Music in Channel or Group Voice Chats.
-- 
+
+## How to deploy 
+
+Click the below button to watch the video tutorial on deploying
+
+<a href="https://youtu.be/FGZr-V2lCo8"><img src="https://img.shields.io/badge/How%20To%20Deploy-blue.svg?logo=Youtube"></a>
+<a href="https://youtu.be/FGZr-V2lCo8"><img src="https://img.shields.io/youtube/views/FGZr-V2lCo8?style=social">
+
 ## Deploy to Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/InFoJosTel/VCMusicPlayer)
