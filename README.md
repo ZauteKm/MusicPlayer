@@ -42,7 +42,7 @@ python3 main.py
 - Use /play <song name> to play song from youtube and /dplay <song name> to play from Deezer.
 - Use /help to know about other commands.
 
-**Features**
+### Features:
 
 - Playlist, queue
 - Supports Live streaming from youtube
