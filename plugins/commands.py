@@ -16,54 +16,62 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>
 """
 
-
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import Client, filters
 
 
 
-HOME_TEXT = "👋🏻 **Hi [{}](tg://user?id={})**,\n\nI'm **Voice Chat Music/Radio Player Bot** \nI Can Play Radio/Stream Music In Channels & Groups 24x7 Nonstop."
-HELP = """🏷️ **Need Help?** 🤔
-Please Subscribe ❤️ @ZauteKm.
+HOME_TEXT = "<b>Helo, [{}](tg://user?id={})\n\nI am VC Music Player 2.2. Which plays music in Channels and Groups 24*7\n\nI can even Stream Youtube Live in Your Voice Chathat\n\nDeploy Your Own bot from source code below\n\nHit /help to know about available commands.\n\n▷ Please Subscribe ❤️ @ZauteKm</b>"
+HELP = """
 
-🏷️ **Common Commands**:
-\u2022 `/play` reply to an audio to play or queue it
-\u2022 `/help` shows help for commands
-\u2022 `/playlist` shows the playlist
-\u2022 `/current` shows playing time of current track
-\u2022 `/song` [song name] download the song as audio
+<b>Add the bot and User account in your Group with admin rights.
 
-🏷️ **Admin Commands**:
-\u2022 `/skip` [n] skip current or n where n >= 2
-\u2022 `/join` join voice chat of current group
-\u2022 `/leave` leave current voice chat
-\u2022 `/vc` check which VC is joined
-\u2022 `/stop` stop playing music
-\u2022 `/radio` start radio stream
-\u2022 `/stopradio` stop radio stream
-\u2022 `/replay` play from the beginning
-\u2022 `/clean` remove unused RAW PCM files
-\u2022 `/pause` pause playing music
-\u2022 `/resume` resume playing music
-\u2022 `/mute` mute the VC userbot
-\u2022 `/unmute` unmute the VC userbot
-\u2022 `/restart` restart the bot
+Start a VoiceChat
+
+Use /play <song name> or use /play as a reply to an audio file or youtube link.
+
+You can also use /dplay <song name> to play a song from Deezer.</b>
+
+**Common Commands**:
+
+**/play**  Reply to an audio file or YouTube link to play it or use /play <song name>.
+**/dplay** Play music from Deezer, Use /dplay <song name>
+**/player**  Show current playing song.
+**/help** Show help for commands
+**/playlist** Shows the playlist.
+
+**Admin Commands**:
+**/skip** [n] ...  Skip current or n where n >= 2
+**/join**  Join voice chat.
+**/leave**  Leave current voice chat
+**/vc**  Check which VC is joined.
+**/stop**  Stop playing.
+**/radio** Start Radio.
+**/stopradio** Stops Radio Stream.
+**/replay**  Play from the beginning.
+**/clean** Remove unused RAW PCM files.
+**/pause** Pause playing.
+**/resume** Resume playing.
+**/mute**  Mute in VC.
+**/unmute**  Unmute in VC.
+**/restart** Restarts the Bot.
 """
+
 
 
 @Client.on_message(filters.command('start'))
 async def start(client, message):
     buttons = [
         [
-        InlineKeyboardButton('🗣️ Feedback', url='https://t.me/InFoJosTelGroup'),
-        InlineKeyboardButton('Source 📢', url='https://t.me/InFoJosTel/115'),
+        InlineKeyboardButton('👥 Group', url='https://t.me/iZaute/5'),
+        InlineKeyboardButton('Bot Lists 🤖', url='https://t.me/iZaute/8'),
     ],
     [
-        InlineKeyboardButton('🤖 Bot Lists', url='https://t.me/TG_BotList/37'),
-        InlineKeyboardButton('Music 👨‍🎤', url='https://t.me/joinchat/7gSUxv6vgQE3M2Fl'),
+        InlineKeyboardButton('🤫 Source', url='https://t.me/iZaute/7'),
+        InlineKeyboardButton('Channel 📢', url='https://t.me/iZaute/6'),
     ],
     [
-        InlineKeyboardButton('⚜️ Help & Information ⚜️', callback_data='help'),
+        InlineKeyboardButton('🔻Help & Information 🔻', callback_data='help'),
         
     ]
     ]
@@ -74,4 +82,18 @@ async def start(client, message):
 
 @Client.on_message(filters.command("help"))
 async def show_help(client, message):
-    await message.reply_text(HELP)
+    buttons = [
+        [
+            InlineKeyboardButton('👥 Group', url='https://t.me/iZaute/5'),
+            InlineKeyboardButton('Bot Lists 🤖', url='https://t.me/iZaute/8'),
+        ],
+        [
+            InlineKeyboardButton('🙄 Source', url='https://t.me/iZaute/7'),
+            InlineKeyboardButton('Channel 📢', url='https://t.me/iZaute/6'),
+        ]
+    ]
+    reply_markup = InlineKeyboardMarkup(buttons)
+    await message.reply_text(
+        HELP,
+        reply_markup=reply_markup
+        )
