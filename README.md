@@ -18,7 +18,7 @@ Click the below button to watch the video tutorial on deploying
 ### Deploy to VPS
 
 ```sh
-git clone https://github.com/InFoJosTel/VCMusicPlayer
+git clone https://github.com/LushaiMusic/VCMusicPlayer
 cd VCMusicPlayer
 pip3 install -r requirements.txt
 # <Create Variables appropriately>
