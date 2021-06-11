@@ -1,5 +1,5 @@
 """
-VCMusicPlayer, Telegram Voice Chat Userbot
+VC Music Player, Telegram Voice Chat Userbot
 Copyright (C) 2021  ZauteKm <https://telegram.dog/ZauteKm>
 
 This program is free software: you can redistribute it and/or modify
