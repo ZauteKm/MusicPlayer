@@ -56,7 +56,7 @@ You can also use /dplay <song name> to play a song from Deezer.</b>
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
-    if query.from_user.id not in Config.ADMINS:
+    if query.from_user.id not in Config.ADMINS and query.data != "help":
         await query.answer(
             "Who the hell you are",
             show_alert=True
@@ -163,12 +163,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data=="help":
         buttons = [
             [
-                InlineKeyboardButton('👥 Group', url='https://t.me/iZaute/5'),
-                InlineKeyboardButton('Channel 📢', url='https://t.me/iZaute/6'),
+                InlineKeyboardButton('👥 Group', url='https://t.me/izaute/5'),
+                InlineKeyboardButton('Channel 📢', url='https://t.me/izaute/6'),
             ],
             [
-                InlineKeyboardButton('🙄 Source', url='https://t.me/iZaute/7'),
-                InlineKeyboardButton('Bot Lists 🤖', url='https://t.me/iZaute/8'),
+                InlineKeyboardButton('🤖 Bot Lists', url='https://t.me/izaute/8'),
+                InlineKeyboardButton('Source 😂', url='https://t.me/izaute/7'),
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
