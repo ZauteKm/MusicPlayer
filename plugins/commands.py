@@ -15,18 +15,22 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>
 """
-
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import Client, filters
+import signal
+from utils import USERNAME, FFMPEG_PROCESSES
+from config import Config
+import os
+import sys
+U=USERNAME
+CHAT=Config.CHAT
 
-
-
-HOME_TEXT = "<b>Helo, [{}](tg://user?id={})\n\nI am VC Music Player 2.2. Which plays music in Channels and Groups 24*7\n\nI can even Stream Youtube Live in Your Voice Chathat\n\nDeploy Your Own bot from source code below\n\nHit /help to know about available commands.\n\n▷ Please Subscribe ❤️ @ZauteKm</b>"
+HOME_TEXT = "<b>Helo, [{}](tg://user?id={})\n\nIam MusicPlayer 2.0 which plays music in Channels and Groups 24*7.\n\nI can even Stream Youtube Live in Your Voicechat.\n\nDeploy Your Own bot from source code below.\n\nHit /help to know about available commands.</b>"
 HELP = """
 
 <b>Add the bot and User account in your Group with admin rights.
 
-Start a VoiceChat
+Start a VoiceChat.
 
 Use /play <song name> or use /play as a reply to an audio file or youtube link.
 
@@ -59,37 +63,38 @@ You can also use /dplay <song name> to play a song from Deezer.</b>
 
 
 
-@Client.on_message(filters.command('start'))
+@Client.on_message(filters.command(['start', f'start@{U}']))
 async def start(client, message):
     buttons = [
         [
-        InlineKeyboardButton('👥 Group', url='https://t.me/iZaute/5'),
-        InlineKeyboardButton('Bot Lists 🤖', url='https://t.me/iZaute/8'),
-    ],
-    [
-        InlineKeyboardButton('🤫 Source', url='https://t.me/iZaute/7'),
+        InlineKeyboardButton('👥 Group', url='https://t.me/izaute/5'),
         InlineKeyboardButton('Channel 📢', url='https://t.me/iZaute/6'),
     ],
     [
-        InlineKeyboardButton('🔻Help & Information 🔻', callback_data='help'),
+        InlineKeyboardButton('🤖 Bot Lists', url='https://t.me/iZaute/8'),
+        InlineKeyboardButton('Source 😂', url='https://t.me/iZaute/7'),
+    ],
+    [
+        InlineKeyboardButton('🆘 Help & Commands 🆘', callback_data='help'),
         
     ]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
     await message.reply(HOME_TEXT.format(message.from_user.first_name, message.from_user.id), reply_markup=reply_markup)
+    await message.delete()
 
 
 
-@Client.on_message(filters.command("help"))
+@Client.on_message(filters.command(["help", f"help@{U}"]))
 async def show_help(client, message):
     buttons = [
         [
-            InlineKeyboardButton('👥 Group', url='https://t.me/iZaute/5'),
-            InlineKeyboardButton('Bot Lists 🤖', url='https://t.me/iZaute/8'),
+            InlineKeyboardButton('👥 Group', url='https://t.me/izaute/5'),
+            InlineKeyboardButton('Channel 📢', url='https://t.me/izaute/6'),
         ],
         [
-            InlineKeyboardButton('🙄 Source', url='https://t.me/iZaute/7'),
-            InlineKeyboardButton('Channel 📢', url='https://t.me/iZaute/6'),
+            InlineKeyboardButton('🤖 Bot Lists', url='https://t.me/izaute/8'),
+            InlineKeyboardButton('Source 😂', url='https://t.me/izaute/7'),
         ]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -97,3 +102,13 @@ async def show_help(client, message):
         HELP,
         reply_markup=reply_markup
         )
+    await message.delete()
+@Client.on_message(filters.command(["restart", f"restart@{U}"]) & filters.user(Config.ADMINS))
+async def restart(client, message):
+    await message.reply_text("🔄 Restarting...")
+    await message.delete()
+    process = FFMPEG_PROCESSES.get(CHAT)
+    if process:
+        process.send_signal(signal.SIGTERM) 
+    os.execl(sys.executable, sys.executable, *sys.argv)
+    
