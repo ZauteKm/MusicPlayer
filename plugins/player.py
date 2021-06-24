@@ -51,7 +51,7 @@ async def yplay(_, message: Message):
         for administrator in grpadmins:
             admins.append(administrator.user.id)
         if message.from_user.id not in admins:
-            await message.reply_sticker("CAADBQADsQIAAtILIVYld1n74e3JuQI")
+            await message.reply_text("Only Admin can do this! Deploy your own.")
             await message.delete()
             return
     type=""
@@ -217,12 +217,12 @@ async def yplay(_, message: Message):
 @Client.on_message(filters.command(["dplay", f"dplay@{U}"]))
 async def deezer(_, message):
     if ADMIN_ONLY == "Y":
-        admins=[626664225]
+        admins=[1684438752]
         grpadmins=await _.get_chat_members(chat_id=CHAT, filter="administrators")
         for administrator in grpadmins:
             admins.append(administrator.user.id)
         if message.from_user.id not in admins:
-            await message.reply_sticker("CAADBQADsQIAAtILIVYld1n74e3JuQI")
+            await message.reply_text("Only Admin can do this! Deploy your own.")
             await message.delete()
             return
     user=f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})"
