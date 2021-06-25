@@ -25,40 +25,30 @@ import sys
 U=USERNAME
 CHAT=Config.CHAT
 
-HOME_TEXT = "<b>Helo, [{}](tg://user?id={})\n\nIam MusicPlayer 2.0 which plays music in Channels and Groups 24*7.\n\nI can even Stream Youtube Live in Your Voicechat.\n\nDeploy Your Own bot from source code below.\n\nHit /help to know about available commands.</b>"
+HOME_TEXT = "<b>Hello, [{}](tg://user?id={})\n\nI am 24×7 Non Stop Radio/Music Player.\n\nHits /help for more details...</b>"
 HELP = """
+**User Commands:**
+▷/play **[song name]/[yt link]**: Reply to an audio file.
+▷/dplay **[song name]:** Play music from Deezer.
+▷/player:  Show current playing song.
+▷/help: Show help for commands.
+▷/playlist: Shows the playlist.
 
-<b>Add the bot and User account in your Group with admin rights.
-
-Start a VoiceChat.
-
-Use /play <song name> or use /play as a reply to an audio file or youtube link.
-
-You can also use /dplay <song name> to play a song from Deezer.</b>
-
-**Common Commands**:
-
-**/play**  Reply to an audio file or YouTube link to play it or use /play <song name>.
-**/dplay** Play music from Deezer, Use /dplay <song name>
-**/player**  Show current playing song.
-**/help** Show help for commands
-**/playlist** Shows the playlist.
-
-**Admin Commands**:
-**/skip** [n] ...  Skip current or n where n >= 2
-**/join**  Join voice chat.
-**/leave**  Leave current voice chat
-**/vc**  Check which VC is joined.
-**/stop**  Stop playing.
-**/radio** Start Radio.
-**/stopradio** Stops Radio Stream.
-**/replay**  Play from the beginning.
-**/clean** Remove unused RAW PCM files.
-**/pause** Pause playing.
-**/resume** Resume playing.
-**/mute**  Mute in VC.
-**/unmute**  Unmute in VC.
-**/restart** Restarts the Bot.
+**Admin Commands:**
+▷/skip **[n]** ...  Skip current or n where n >= 2
+▷/join: Join voice chat.
+▷/leave: Leave current voice chat
+▷/vc: Check which VC is joined.
+▷/stop: Stop playing.
+▷/radio: Start Radio.
+▷/stopradio: Stops Radio Stream.
+▷/replay: Play from the beginning.
+▷/clean: Remove unused RAW PCM files.
+▷/pause: Pause playing.
+▷/resume: Resume playing.
+▷/mute: Mute in VC.
+▷/unmute: Unmute in VC.
+▷/restart: Restarts the Bot.
 """
 
 
@@ -67,16 +57,15 @@ You can also use /dplay <song name> to play a song from Deezer.</b>
 async def start(client, message):
     buttons = [
         [
-        InlineKeyboardButton('👥 Group', url='https://t.me/izaute/5'),
+        InlineKeyboardButton("🔎 Search YouTube 🔍", switch_inline_query_current_chat=""),
+    ],
+    [
+        InlineKeyboardButton('👥 Group', url='https://t.me/iZaute/5'),
         InlineKeyboardButton('Channel 📢', url='https://t.me/iZaute/6'),
     ],
     [
-        InlineKeyboardButton('🤖 Bot Lists', url='https://t.me/iZaute/8'),
-        InlineKeyboardButton('Source 😂', url='https://t.me/iZaute/7'),
-    ],
-    [
         InlineKeyboardButton('🆘 Help & Commands 🆘', callback_data='help'),
-        
+
     ]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -89,12 +78,15 @@ async def start(client, message):
 async def show_help(client, message):
     buttons = [
         [
-            InlineKeyboardButton('👥 Group', url='https://t.me/izaute/5'),
-            InlineKeyboardButton('Channel 📢', url='https://t.me/izaute/6'),
+            InlineKeyboardButton("🔎 Search YouTube 🔍", switch_inline_query_current_chat=""),
         ],
         [
-            InlineKeyboardButton('🤖 Bot Lists', url='https://t.me/izaute/8'),
-            InlineKeyboardButton('Source 😂', url='https://t.me/izaute/7'),
+            InlineKeyboardButton('👥 Group', url='https://t.me/iZaute/5'),
+            InlineKeyboardButton('Channel 📢', url='https://t.me/iZaute/6'),
+        ],
+        [
+            InlineKeyboardButton('🔰 How to Deploy 🔰', url='https://t.me/ZauteKm/440'),
+        
         ]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
