@@ -125,7 +125,7 @@ async def yplay(_, message: Message):
             pl = f"{emoji.NO_ENTRY} Empty playlist"
         else:   
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
+                f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
                 for i, x in enumerate(playlist)
                 ])
         if LOG_GROUP and message.chat.id != LOG_GROUP:
@@ -199,7 +199,7 @@ async def yplay(_, message: Message):
             pl = f"{emoji.NO_ENTRY} Empty playlist"
         else:
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
+                f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
                 for i, x in enumerate(playlist)
                 ])
         if LOG_GROUP and message.chat.id != LOG_GROUP:
@@ -279,7 +279,7 @@ async def deezer(_, message):
         pl = f"{emoji.NO_ENTRY} Empty playlist"
     else:
         pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-            f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
+            f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
             for i, x in enumerate(playlist)
             ])
     if LOG_GROUP and message.chat.id != LOG_GROUP:
@@ -301,7 +301,7 @@ async def player(_, m: Message):
         return
     else:
         pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-            f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
+            f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
             for i, x in enumerate(playlist)
             ])
     await m.reply_text(
@@ -311,13 +311,13 @@ async def player(_, m: Message):
             [
                 [
                     InlineKeyboardButton("🔄", callback_data="replay"),
-					InlineKeyboardButton("⏯", callback_data="pause"),
+		    InlineKeyboardButton("⏯", callback_data="pause"),
                     InlineKeyboardButton("⏩", callback_data="skip")
-                
-                ],
-
-			]
-			)
+              ],[
+                    InlineKeyboardButton("🔎 Search YouTube 🔍", switch_inline_query_current_chat="")
+               ]
+            ]
+        )
     )
     await m.delete()
 
@@ -333,7 +333,7 @@ async def skip_track(_, m: Message):
             pl = f"{emoji.NO_ENTRY} Empty playlist"
         else:
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-            f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
+            f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
             for i, x in enumerate(playlist)
             ])
         if LOG_GROUP and m.chat.id != LOG_GROUP:
@@ -360,7 +360,7 @@ async def skip_track(_, m: Message):
                 pl = f"{emoji.NO_ENTRY} Empty Playlist"
             else:
                 pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
+                    f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
                     for i, x in enumerate(playlist)
                     ])
             if LOG_GROUP and m.chat.id != LOG_GROUP:
@@ -519,7 +519,7 @@ async def show_playlist(_, m: Message):
         pl = f"{emoji.NO_ENTRY} Empty Playlist."
     else:
         pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-            f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
+            f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
             for i, x in enumerate(playlist)
             ])
     await m.reply_text(pl)
@@ -529,5 +529,5 @@ admincmds=["join", "unmute", "mute", "leave", "clean", "vc", "pause", "resume", 
 
 @Client.on_message(filters.command(admincmds) & ~filters.user(ADMINS))
 async def notforu(_, m: Message):
-    await m.reply("Who the hell you are?.")
+    await m.reply("**Only Admin can do this!**")
 
