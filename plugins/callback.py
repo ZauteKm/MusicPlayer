@@ -12,7 +12,6 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU Affero General Public License for more details.
 """
-
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, emoji
 from utils import mp
@@ -49,7 +48,7 @@ HELP = """
 async def cb_handler(client: Client, query: CallbackQuery):
     if query.from_user.id not in Config.ADMINS and query.data != "help":
         await query.answer(
-            "**Only Admin can do this!**",
+            "Only Admin can do this!",
             show_alert=True
             )
         return
@@ -64,7 +63,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             pl = f"{emoji.NO_ENTRY} Empty Playlist"
         else:
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
+                f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
                 for i, x in enumerate(playlist)
                 ])
         await query.edit_message_text(
@@ -74,14 +73,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     [
                         [
                             InlineKeyboardButton("🔄", callback_data="replay"),
-		            InlineKeyboardButton("⏯", callback_data="pause"),
+                            InlineKeyboardButton("⏯", callback_data="pause"),
                             InlineKeyboardButton("⏩", callback_data="skip")
-                     ],[
-                            InlineKeyboardButton("🔎 Search YouTube 🔍", switch_inline_query_current_chat="")
-                     ]
-                 ]
-             )
-        )
+                            
+                        ],
+                    ]
+                )
+            )
 
     elif query.data == "pause":
         if not playlist:
@@ -89,7 +87,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         else:
             mp.group_call.pause_playout()
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
+                f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
                 for i, x in enumerate(playlist)
                 ])
         await query.edit_message_text(f"{emoji.PLAY_OR_PAUSE_BUTTON} Paused\n\n{pl}",
@@ -97,14 +95,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     [
                         [
                             InlineKeyboardButton("🔄", callback_data="replay"),
-		            InlineKeyboardButton("⏯", callback_data="pause"),
+                            InlineKeyboardButton("⏯", callback_data="resume"),
                             InlineKeyboardButton("⏩", callback_data="skip")
-                     ],[
-                            InlineKeyboardButton("🔎 Search YouTube 🔍", switch_inline_query_current_chat="")
-                     ]
-                 ]
-             )
-        )
+                            
+                        ],
+                    ]
+                )
+            )
 
     
     elif query.data == "resume":   
@@ -113,7 +110,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         else:
             mp.group_call.resume_playout()
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
+                f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
                 for i, x in enumerate(playlist)
                 ])
         await query.edit_message_text(f"{emoji.PLAY_OR_PAUSE_BUTTON} Resumed\n\n{pl}",
@@ -121,14 +118,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     [
                         [
                             InlineKeyboardButton("🔄", callback_data="replay"),
-		            InlineKeyboardButton("⏯", callback_data="pause"),
+                            InlineKeyboardButton("⏯", callback_data="pause"),
                             InlineKeyboardButton("⏩", callback_data="skip")
-                     ],[
-                            InlineKeyboardButton("🔎 Search YouTube 🔍", switch_inline_query_current_chat="")
-                     ]
-                 ]
-             )
-        )
+                            
+                        ],
+                    ]
+                )
+            )
 
     elif query.data=="skip":   
         if not playlist:
@@ -136,7 +132,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         else:
             await mp.skip_current_playing()
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
+                f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
                 for i, x in enumerate(playlist)
                 ])
         try:
@@ -145,20 +141,19 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 [
                     [
                         InlineKeyboardButton("🔄", callback_data="replay"),
-		            InlineKeyboardButton("⏯", callback_data="pause"),
-                            InlineKeyboardButton("⏩", callback_data="skip")
-                     ],[
-                            InlineKeyboardButton("🔎 Search YouTube 🔍", switch_inline_query_current_chat="")
-                     ]
-                 ]
-             )
+                        InlineKeyboardButton("⏯", callback_data="pause"),
+                        InlineKeyboardButton("⏩", callback_data="skip")
+                            
+                    ],
+                ]
+            )
         )
         except:
             pass
     elif query.data=="help":
         buttons = [
             [
-                InlineKeyboardButton("🔎 Search YouTube 🔍", switch_inline_query_current_chat=""),
+                InlineKeyboardButton("🔥 Source Code 🔥", url='https://github.com/LushaiMusic/VCMusicPlayer'),
             ],
             [
                InlineKeyboardButton('👥 Group', url='https://t.me/iZaute/5'),
