@@ -70,7 +70,7 @@ async def yplay(_, message: Message):
             match = re.match(regex,link)
             if match:
                 type="youtube"
-                yturl=message.text
+                yturl=link
         elif " " in message.text:
             text = message.text.split(" ", 1)
             query = text[1]
@@ -125,7 +125,7 @@ async def yplay(_, message: Message):
             pl = f"{emoji.NO_ENTRY} Empty playlist"
         else:   
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
+                f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
                 for i, x in enumerate(playlist)
                 ])
         if LOG_GROUP and message.chat.id != LOG_GROUP:
@@ -138,29 +138,32 @@ async def yplay(_, message: Message):
             await message.reply_text(pl)
     if type=="youtube" or type=="query":
         if type=="youtube":
-            ytquery=yturl
+            msg = await message.reply_text("⚡️ **Fetching Song From YouTube...**")
+            url=yturl
         elif type=="query":
-            ytquery=ysearch
+            try:
+                msg = await message.reply_text("⚡️ **Fetching Song From YouTube...**")
+                ytquery=ysearch
+                results = YoutubeSearch(ytquery, max_results=1).to_dict()
+                url = f"https://youtube.com{results[0]['url_suffix']}"
+                title = results[0]["title"][:40]
+            except Exception as e:
+                await msg.edit(
+                    "Song not found.\nTry inline mode.."
+                )
+                print(str(e))
+                return
         else:
             return
-        msg = await message.reply_text("⚡️ **Fetching Song From YouTube...**")
-        try:
-            results = YoutubeSearch(ytquery, max_results=1).to_dict()
-            url = f"https://youtube.com{results[0]['url_suffix']}"
-            title = results[0]["title"][:40]
-            ydl_opts = {
-                "geo-bypass": True,
-                "nocheckcertificate": True
-            }
-            ydl = YoutubeDL(ydl_opts)
-            info = ydl.extract_info(url, False)
-            duration = round(info["duration"] / 60)
-        except Exception as e:
-            await msg.edit(
-                "Song not found.\nTry inline mode.."
-            )
-            print(str(e))
-            return
+        ydl_opts = {
+            "geo-bypass": True,
+            "nocheckcertificate": True
+        }
+        ydl = YoutubeDL(ydl_opts)
+        info = ydl.extract_info(url, False)
+        duration = round(info["duration"] / 60)
+        print(info)
+        title= info["title"]
         if int(duration) > DURATION_LIMIT:
             await message.reply_text(f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided video is {duration} minute(s)")
             return
@@ -199,7 +202,7 @@ async def yplay(_, message: Message):
             pl = f"{emoji.NO_ENTRY} Empty playlist"
         else:
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
+                f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
                 for i, x in enumerate(playlist)
                 ])
         if LOG_GROUP and message.chat.id != LOG_GROUP:
@@ -279,7 +282,7 @@ async def deezer(_, message):
         pl = f"{emoji.NO_ENTRY} Empty playlist"
     else:
         pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-            f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
+            f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
             for i, x in enumerate(playlist)
             ])
     if LOG_GROUP and message.chat.id != LOG_GROUP:
@@ -301,7 +304,7 @@ async def player(_, m: Message):
         return
     else:
         pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-            f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
+            f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
             for i, x in enumerate(playlist)
             ])
     await m.reply_text(
@@ -311,13 +314,13 @@ async def player(_, m: Message):
             [
                 [
                     InlineKeyboardButton("🔄", callback_data="replay"),
-		    InlineKeyboardButton("⏯", callback_data="pause"),
+					InlineKeyboardButton("⏯", callback_data="pause"),
                     InlineKeyboardButton("⏩", callback_data="skip")
-              ],[
-                    InlineKeyboardButton("🔎 Search YouTube 🔍", switch_inline_query_current_chat="")
-               ]
-            ]
-        )
+                
+                ],
+
+			]
+			)
     )
     await m.delete()
 
@@ -333,7 +336,7 @@ async def skip_track(_, m: Message):
             pl = f"{emoji.NO_ENTRY} Empty playlist"
         else:
             pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-            f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
+            f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
             for i, x in enumerate(playlist)
             ])
         if LOG_GROUP and m.chat.id != LOG_GROUP:
@@ -360,7 +363,7 @@ async def skip_track(_, m: Message):
                 pl = f"{emoji.NO_ENTRY} Empty Playlist"
             else:
                 pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                    f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
+                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
                     for i, x in enumerate(playlist)
                     ])
             if LOG_GROUP and m.chat.id != LOG_GROUP:
@@ -519,7 +522,7 @@ async def show_playlist(_, m: Message):
         pl = f"{emoji.NO_ENTRY} Empty Playlist."
     else:
         pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-            f"**{i}**. **{x[1]}**\n   **• Requested by:** {x[4]}"
+            f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
             for i, x in enumerate(playlist)
             ])
     await m.reply_text(pl)
@@ -529,5 +532,5 @@ admincmds=["join", "unmute", "mute", "leave", "clean", "vc", "pause", "resume", 
 
 @Client.on_message(filters.command(admincmds) & ~filters.user(ADMINS))
 async def notforu(_, m: Message):
-    await m.reply("**Only Admin can do this!**")
+    await m.reply("Only Admin Can do this!")
 
