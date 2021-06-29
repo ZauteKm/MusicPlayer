@@ -57,7 +57,7 @@ HELP = """
 async def start(client, message):
     buttons = [
         [
-        InlineKeyboardButton("🔎 Search YouTube 🔍", switch_inline_query_current_chat=""),
+        InlineKeyboardButton("🔥 Source Code 🔥", url='https://github.com/LushaiMusic/VCMusicPlayer'),
     ],
     [
         InlineKeyboardButton('👥 Group', url='https://t.me/iZaute/5'),
@@ -78,7 +78,7 @@ async def start(client, message):
 async def show_help(client, message):
     buttons = [
         [
-            InlineKeyboardButton("🔎 Search YouTube 🔍", switch_inline_query_current_chat=""),
+            InlineKeyboardButton("🔥 Source Code 🔥", url='https://github.com/LushaiMusic/VCMusicPlayer'),
         ],
         [
             InlineKeyboardButton('👥 Group', url='https://t.me/iZaute/5'),
