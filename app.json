@@ -49,7 +49,7 @@
     },
     "ADMIN_ONLY": {
       "description": "Change it to 'N' if you want to make /play and /dplay available for everyone. By default only admins of CHAT can use it.",
-      "value": "Y",
+      "value": "N",
       "required": false
     },
     "MAXIMUM_DURATION": {
