@@ -17,7 +17,7 @@ from utils import USERNAME
 from config import Config
 ADMINS=Config.ADMINS
 from pyrogram.errors import BotInlineDisabled
-@Client.on_message(filters.private & ~filters.bot & filters.incoming & ~filters.service)
+@Client.on_message(filters.private & ~filters.bot & filters.incoming & ~filters.service & ~filters.me)
 async def reply(client, message): 
     try:
         inline = await client.get_inline_bot_results(USERNAME, "ORU_MANDAN_PM_VANNU")
