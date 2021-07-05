@@ -14,10 +14,10 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>
 """
-from pyrogram import Client, idle, filters
+from pyrogram import Client, idle
 import os
 from config import Config
-from utils import mp, USERNAME
+from utils import mp
 from pyrogram.raw import functions, types
 
 CHAT=Config.CHAT
