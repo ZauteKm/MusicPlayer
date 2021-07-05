@@ -18,13 +18,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import Client, filters
 import signal
-from utils import USERNAME, FFMPEG_PROCESSES
+from utils import USERNAME, FFMPEG_PROCESSES, mp
 from config import Config
 import os
 import sys
 U=USERNAME
 CHAT=Config.CHAT
-
+msg=Config.msg
 HOME_TEXT = "<b>Hello, [{}](tg://user?id={})\n\nI am 24×7 Non Stop Radio/Music Player.\n\nHits /help for more details...</b>"
 HELP = """
 **User Commands:**
