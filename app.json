@@ -36,11 +36,11 @@
       "required": true
     },
     "CHAT": {
-      "description": "ID of Channel or Group where the Bot plays Music",
+      "description": "ID of Channel or Group where the Bot plays Music. Ex: -1001173263645",
       "required": true
     },
     "LOG_GROUP": {
-      "description": "ID of the group to send playlist If CHAT is a Group, if channel thenleave blank",
+      "description": "ID of the group to send playlist If CHAT is a Group, if channel thenleave blank. Ex: -1001173263645",
       "required": false
     },
     "ADMINS": {
