@@ -11,7 +11,9 @@ Click the below button to watch the video tutorial on deploying
 <a href="https://youtu.be/FGZr-V2lCo8"><img src="https://img.shields.io/badge/How%20To%20Deploy%20v2.0%20Old-blue.svg?logo=Youtube"></a>
 <a href="https://youtu.be/FGZr-V2lCo8"><img src="https://img.shields.io/youtube/views/FGZr-V2lCo8?style=social">
 
-# NOTE: Make sure you have started a VoiceChat in your Group before deploying.
+## NOTE:
+
+- Make sure you have started a VoiceChat in your Group before deploying.
 
 ## Deploy to Heroku
 
