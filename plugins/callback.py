@@ -160,7 +160,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                InlineKeyboardButton('Channel 📢', url='https://t.me/iZaute/6'),
             ],
             [
-               InlineKeyboardButton('🔰 How to Deploy 🔰', url='https://t.me/ZauteKm/580'),
+               InlineKeyboardButton('🔰 How to Deploy 🔰', url='https://t.me/c/1481808444/131'),
         
             ]
         ]
