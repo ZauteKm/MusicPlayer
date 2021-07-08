@@ -63,7 +63,7 @@ python3 main.py
 - Automatic restart even if heroku restarts.
 
 #### Support
-Join Now Telegram Group [VC Music Live Sets](https://t.me/tgVCSets)
+Join Now Telegram [VC Music Live Sets](https://t.me/c/1481808444/131)
 
 ## Requirements
 
