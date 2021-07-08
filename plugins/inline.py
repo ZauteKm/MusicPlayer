@@ -25,7 +25,7 @@ buttons = [
     ],
     [
         InlineKeyboardButton('👨‍🎤 Play Music', url=f'https://t.me/{USERNAME}'),
-        InlineKeyboardButton('Listen Music 🎧', url='https://t.me/tgVCSets?voicechat'),
+        InlineKeyboardButton('How to Deploy 🤓', url='https://t.me/ZauteKm/580'),
     ],
     [
         InlineKeyboardButton('🆘 Help & Commands 🆘', callback_data='help')       
