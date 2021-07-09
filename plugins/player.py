@@ -51,7 +51,7 @@ async def yplay(_, message: Message):
         for administrator in grpadmins:
             admins.append(administrator.user.id)
         if message.from_user.id not in admins:
-            m=await message.reply_text("Only admin can do this!")
+            m=await message.reply_sticker("CAADBQADGgIAAmcqmVXtrFROnZYCrBYE")
             await mp.delete(m)
             await message.delete()
             return
@@ -235,7 +235,7 @@ async def deezer(_, message):
         for administrator in grpadmins:
             admins.append(administrator.user.id)
         if message.from_user.id not in admins:
-            k=await message.reply_text("Only admin can do this!")
+            k=await message.reply_sticker("CAADBQADGgIAAmcqmVXtrFROnZYCrBYE")
             await mp.delete(k)
             await message.delete()
             return
