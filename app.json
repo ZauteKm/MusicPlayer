@@ -1,8 +1,8 @@
 {
   "name": "VC Music Player",
-  "description": "An Telegram Bot Maded By Zaute to Play Nonstop Radio/Music in Telegram Voice Chats",
-  "repository": "https://github.com/LushaiMusic/VCMusicPlayer",
-  "logo": "https://telegra.ph/file/a247cefef0c9fd6308ee2.jpg",
+  "description": "An Telegram Bot Maded By JayRaj to Play Nonstop Radio/Music in Telegram Voice Chats",
+  "repository": "https://github.com/GMKYT/VCMusicPlayer",
+  "logo": "https://telegra.ph/file/4f7bab4c3a7476512f0f5.jpg",
   "keywords": [
     "telegram",
     "bot",
@@ -59,7 +59,7 @@
     },
     "STREAM_URL": {
       "description": "URL of Radio station or Youtube live video url to stream with /radio command",
-      "value": "https://youtu.be/zcrUCvBD16k",
+      "value": "https://youtu.be/3JQ3Yy6EPCQ",
       "required": false
     },
     "REPLY_MESSAGE": {
