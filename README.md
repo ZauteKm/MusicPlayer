@@ -9,6 +9,15 @@
 
 - Make sure you have started a VoiceChat in your Group before deploying.
 
+## Deploy to VPS
+```sh
+git clone https://github.com/LushaiMusic/VCMusicPlayer
+cd VCMusicPlayer
+pip3 install -r requirements.txt
+# <Create Variables appropriately>
+python3 main.py
+```
+
 
 ## Deploy to Qovery
 
@@ -27,15 +36,6 @@
 
 <a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/youtube/views/FKaAU4Pr2bw?style=social">
 
-
-## Deploy to VPS
-```sh
-git clone https://github.com/LushaiMusic/VCMusicPlayer
-cd VCMusicPlayer
-pip3 install -r requirements.txt
-# <Create Variables appropriately>
-python3 main.py
-```
 
 ## Configs Vars:
 1. `API_ID` : Get From [my.telegram.org](https://my.telegram.org/app)
