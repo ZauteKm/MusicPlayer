@@ -36,9 +36,9 @@ python3 main.py
 
 <a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/youtube/views/FKaAU4Pr2bw?style=social">
 
-##
 
 ## Configs Vars:
+Telegram Bot to play music in VoiceChat with Channel Support and autostarts Radio.
 1. `API_ID` : Get From [my.telegram.org](https://my.telegram.org/app)
 2. `API_HASH` : Get from [my.telegram.org](https://my.telegram.org/app)
 3. `BOT_TOKEN` : Get From [@Botfather](https://telegram.dog/BotFather)
