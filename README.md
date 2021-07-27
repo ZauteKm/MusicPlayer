@@ -22,7 +22,7 @@
 ## Deploy to Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/LushaiMusic/VCMusicPlayer)
-• How to deploy on Heroku
+
 <a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/badge/How%20to%20Deploy%20on%20Heroku-blue.svg?logo=Youtube"></a>
 <a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/youtube/views/FKaAU4Pr2bw?style=social">
 
@@ -56,8 +56,7 @@ python3 main.py
 - Use /play <song name> to play song from youtube and /dplay <song name> to play from Deezer.
 - Use /help to know about other commands.
 
-**Features**
-
+## Features
 - Playlist, queue
 - Supports Live streaming from youtube
 - Supports both deezer and youtube to search songs.
