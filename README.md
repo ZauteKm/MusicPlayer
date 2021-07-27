@@ -48,6 +48,8 @@ python3 main.py
 
 
 ## Configs Vars:
+
+- Pre Requisite
 1. `API_ID` : Get From [my.telegram.org](https://my.telegram.org/app)
 2. `API_HASH` : Get from [my.telegram.org](https://my.telegram.org/app)
 3. `BOT_TOKEN` : Get From [@Botfather](https://telegram.dog/BotFather)
