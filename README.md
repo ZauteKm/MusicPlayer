@@ -21,7 +21,11 @@ Click the below button to watch the video tutorial on deploying
 
 ## Deploy to Qovery
 
-[![Deploy](https://www.qoverycdn.com/deploy/button.svg)](https://qovery.com/deploy?template=https://qovery.com)
+<p align="left">
+  <a href="https://qovery.com">
+     <img height="30px" src="https://img.shields.io/badge/Deploy%20To%20Qovery-blueviolet?style=for-the-badge&logo=qovery">
+  </a>
+</p>
 
 
 ## Deploy to Heroku
