@@ -32,8 +32,9 @@ Click the below button to watch the video tutorial on deploying
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/LushaiMusic/VCMusicPlayer)
 
-<a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/badge/How%20To%20Deploy%20on%20Heroku-blue.svg?logo=Youtube"></a>
+<a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/badge/How%20to%20Deploy%20on%20Heroku-blue.svg?logo=Youtube"></a>
 <a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/youtube/views/FKaAU4Pr2bw?style=social">
+
 
 
 ## Deploy to VPS
@@ -46,10 +47,11 @@ pip3 install -r requirements.txt
 python3 main.py
 ```
 
+
 ## Configs Vars:
-1. `API_ID` : Get From my.telegram.org
-2. `API_HASH` : Get from my.telegram.org
-3. `BOT_TOKEN` : @Botfather
+1. `API_ID` : Get From [my.telegram.org](https://my.telegram.org/app)
+2. `API_HASH` : Get from [my.telegram.org](https://my.telegram.org/app)
+3. `BOT_TOKEN` : Get From [@Botfather](https://telegram.dog/BotFather)
 4. `SESSION_STRING` : Generate From here [![GenerateStringName](https://img.shields.io/badge/repl.it-generateStringName-yellowgreen)](https://replit.com/@ZauteKm/GenerateStringSession)
 5. `CHAT` : ID of Channel/Group where the bot plays Music.
 6. `LOG_GROUP` : Group to send Playlist, if CHAT is a Group
