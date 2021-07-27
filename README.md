@@ -34,8 +34,7 @@ Click the below button to watch the video tutorial on deploying
 
 <a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/badge/How%20to%20Deploy%20on%20Heroku-blue.svg?logo=Youtube"></a>
 <a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/youtube/views/FKaAU4Pr2bw?style=social">
-
-
+• Click & Watching Now.
 
 ## Deploy to VPS
 
