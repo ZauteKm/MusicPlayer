@@ -18,6 +18,12 @@ Click the below button to watch the video tutorial on deploying
 
 - Make sure you have started a VoiceChat in your Group before deploying.
 
+
+## Deploy to Qovery
+
+[![Deploy](https://www.qoverycdn.com/deploy/button.svg)](https://qovery.com/deploy?template=https://qovery.com)
+
+
 ## Deploy to Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/LushaiMusic/VCMusicPlayer)
