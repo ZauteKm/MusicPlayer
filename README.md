@@ -46,7 +46,7 @@ pip3 install -r requirements.txt
 python3 main.py
 ```
 
-# Configs Vars:
+## Configs Vars:
 1. `API_ID` : Get From my.telegram.org
 2. `API_HASH` : Get from my.telegram.org
 3. `BOT_TOKEN` : @Botfather
@@ -111,6 +111,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>
 
 ## Credits
 
-- [Zaute Km](https://github.com/Zaute-Km) [Dev]
+- [Zaute Km](https://github.com/ZauteKm) [Dev]
 - [Dash Eclipse](https://github.com/dashezup) [For tgvc_userbot]
 - [Marshal X](https://github.com/MarshalX) [For pytgcalls]
