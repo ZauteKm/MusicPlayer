@@ -36,7 +36,7 @@ Click the below button to watch the video tutorial on deploying
 <a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/youtube/views/FKaAU4Pr2bw?style=social">
 
 
-### Deploy to VPS
+## Deploy to VPS
 
 ```sh
 git clone https://github.com/LushaiMusic/VCMusicPlayer
