@@ -4,15 +4,6 @@
 - A Telegram Bot to Play Audio in Voice Chats With Youtube and Deezer support.
 - Supports Live streaming from YouTube.
 
-## How to deploy 
-
-Click the below button to watch the video tutorial on deploying
-
-<a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/badge/How%20To%20Deploy%20v3.0%20Latest-blue.svg?logo=Youtube"></a>
-<a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/youtube/views/FKaAU4Pr2bw?style=social">
-
-<a href="https://youtu.be/FGZr-V2lCo8"><img src="https://img.shields.io/badge/How%20To%20Deploy%20v2.0%20Old-blue.svg?logo=Youtube"></a>
-<a href="https://youtu.be/FGZr-V2lCo8"><img src="https://img.shields.io/youtube/views/FGZr-V2lCo8?style=social">
 
 ## NOTE:
 
@@ -32,6 +23,7 @@ Click the below button to watch the video tutorial on deploying
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/LushaiMusic/VCMusicPlayer)
 
+• How to deploy on Heroku
 
 <a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/badge/How%20to%20Deploy%20on%20Heroku-blue.svg?logo=Youtube"></a>
 <a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/youtube/views/FKaAU4Pr2bw?style=social">
