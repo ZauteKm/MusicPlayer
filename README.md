@@ -9,15 +9,6 @@
 
 - Make sure you have started a VoiceChat in your Group before deploying.
 
-## Deploy to VPS
-```sh
-git clone https://github.com/LushaiMusic/VCMusicPlayer
-cd VCMusicPlayer
-pip3 install -r requirements.txt
-# <Create Variables appropriately>
-python3 main.py
-```
-
 
 ## Deploy to Qovery
 
@@ -27,35 +18,67 @@ python3 main.py
   </a>
 </p>
 
+### Pre Requisites 
+- `API_ID` : [my.telegram.org](https://my.telegram.org/app)
+- `API_HASH` : Get from [my.telegram.org](https://my.telegram.org/app)
+- `BOT_TOKEN` : Get From [@Botfather](https://telegram.dog/BotFather)
+- `SESSION_STRING` : Generate From here [![GenerateStringName](https://img.shields.io/badge/repl.it-generateStringName-yellowgreen)](https://replit.com/@ZauteKm/GenerateStringSession)
+- `CHAT` : ID of Channel/Group where the bot plays Music.
+- `LOG_GROUP` : Group to send Playlist, if CHAT is a Group
+- `ADMINS` : ID of users who can use admin commands.
+- `ARQ_API` : Get it for free from [@ARQRobot](https://telegram.dog/ARQRobot), This is required for /dplay to work.
+- `STREAM_URL` : Stream URL of radio station or a youtube live video to stream when the bot starts or with /radio command. Some Streaming Links [Click here.](https://t.me/c/1481808444/143)
+- `MAXIMUM_DURATION` : Maximum duration of song to play.(Optional)
+- `REPLY_MESSAGE` : A reply to those who message the USER account in PM. Leave it blank if you do not need this feature. 
+- `ADMIN_ONLY` : Pass `Y` If you want to make /play and /dplay commands only for admins of `CHAT`. By default /play and /dplay is available for all.
 
-## Deploy to Heroku
+## Deploy Now
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/LushaiMusic/VCMusicPlayer)
+<details><summary>Deploy to Heroku</summary>
+<p>
+<br>
+<a href="https://heroku.com/deploy?template=https://github.com/LushaiMusic/VCMusicPlayer">
+  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 
 <a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/badge/How%20to%20Deploy%20on%20Heroku-blue.svg?logo=Youtube"></a>
 
 <a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/youtube/views/FKaAU4Pr2bw?style=social">
+</a>
+</p>
+</details>
 
+<details><summary>Deploy to Qovery</summary>
+<p>
+<pre>
+<a href="https://qovery.com">
+  <img src="https://telegra.ph/file/a45e689e27f3847bbfca9.png" alt="Deploy">
 
-## Configs Vars:
-1. `API_ID` : [my.telegram.org](https://my.telegram.org/app)
-2. `API_HASH` : Get from [my.telegram.org](https://my.telegram.org/app)
-3. `BOT_TOKEN` : Get From [@Botfather](https://telegram.dog/BotFather)
-4. `SESSION_STRING` : Generate From here [![GenerateStringName](https://img.shields.io/badge/repl.it-generateStringName-yellowgreen)](https://replit.com/@ZauteKm/GenerateStringSession)
-5. `CHAT` : ID of Channel/Group where the bot plays Music.
-6. `LOG_GROUP` : Group to send Playlist, if CHAT is a Group
-7. `ADMINS` : ID of users who can use admin commands.
-8. `ARQ_API` : Get it for free from [@ARQRobot](https://telegram.dog/ARQRobot), This is required for /dplay to work.
-9. `STREAM_URL` : Stream URL of radio station or a youtube live video to stream when the bot starts or with /radio command. Some Streaming Links [Click here.](https://t.me/c/1481808444/143)
-10. `MAXIMUM_DURATION` : Maximum duration of song to play.(Optional)
-11. `REPLY_MESSAGE` : A reply to those who message the USER account in PM. Leave it blank if you do not need this feature. 
-12. `ADMIN_ONLY` : Pass `Y` If you want to make /play and /dplay commands only for admins of `CHAT`. By default /play and /dplay is available for all.
+<details><summary>Deploy to VPS</summary>
+<p>
+<pre>
+git clone https://github.com/LushaiMusic/VCMusicPlayer
+cd VCMusicPlayer
+pip3 install -r requirements.txt
+# <Create Variables appropriately>
+python3 main.py
+</pre>
+</p>
+</details>
 
+## Commands
+
+<details><summary>How to Use..!</summary>
+<p>
+<br>
 - Enable the worker after deploy the project to Heroku
 - Bot will starts radio automatically in given `CHAT` with given `STREAM_URL` after deploy.(24*7 Music even if heroku restarts, radio stream restarts automatically.)  
 - To play a song use /play as a reply to audio file or a youtube link.
 - Use /play <song name> to play song from youtube and /dplay <song name> to play from Deezer.
 - Use /help to know about other commands.
+</a>
+</p>
+</details>
+
 
 ## Features
 - Playlist, queue
