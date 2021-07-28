@@ -4,11 +4,18 @@
 - A Telegram Bot to Play Audio in Voice Chats With Youtube and Deezer support.
 - Supports Live streaming from YouTube.
 
+---
 
 ## NOTE:
 
 - Make sure you have started a VoiceChat in your Group before deploying.
 
+---
+
+## Variables
+<details>
+  <summary><b>See Variables</b></summary>
+<br/>
 
 ### Pre Requisites 
 - `API_ID` : [my.telegram.org](https://my.telegram.org/app)
@@ -24,9 +31,13 @@
 - `REPLY_MESSAGE` : A reply to those who message the USER account in PM. Leave it blank if you do not need this feature. 
 - `ADMIN_ONLY` : Pass `Y` If you want to make /play and /dplay commands only for admins of `CHAT`. By default /play and /dplay is available for all.
 
+</details>
+
+---
+
 ## Deploy Now
 
-<details><summary>Deploy to Heroku</summary>
+<details><summary><b>Deploy to Heroku</b></summary>
 <p>
 <br>
 <a href="https://heroku.com/deploy?template=https://github.com/LushaiMusic/VCMusicPlayer">
@@ -38,27 +49,30 @@
 </p>
 </details>
 
-<details><summary>Deploy to Qovery</summary>
+<details><summary><b>Deploy to Qovery</b></summary>
 <p>
 <pre>
-<a href="https://qovery.com">
-  <img src="https://qovery.com/logo" alt="Deploy">
+<a href="https://qovey.com">
+     <img height="30px" src="https://img.shields.io/badge/Deploy%20to%20Qovery-blueviolet?style=for-the-badge&logo=qovery">
 </a>
 </p>
 </details>
 
-<details><summary>Deploy to VPS</summary>
-<p>
-<pre>
+<details>
+  <summary><b>Deploy in your vps</b></summary>
+<br/>
+
+```sh
 git clone https://github.com/LushaiMusic/VCMusicPlayer
 cd VCMusicPlayer
 pip3 install -r requirements.txt
 # <Create Variables appropriately>
 python3 main.py
-</pre>
-</p>
+```
+
 </details>
 
+---
 
 ## Commands
 <details><summary>How to Use..!</summary>
@@ -77,6 +91,7 @@ python3 main.py
 </p>
 </details>
 
+---
 
 ## Features
 - Playlist, queue
@@ -86,6 +101,8 @@ python3 main.py
 - Starts Radio after if no songs in playlist.
 - Automatically downloads audio for the first two tracks in the playlist to ensure smooth playing
 - Automatic restart even if heroku restarts.
+
+---
 
 #### Support
 Join Now Telegram [VC Music Live Sets](https://t.me/c/1481808444/131)
@@ -119,6 +136,8 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>
 ```
+
+---
 
 ## Credits
 
