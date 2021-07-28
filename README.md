@@ -43,6 +43,9 @@
 <pre>
 <a href="https://qovery.com">
   <img src="https://telegra.ph/file/a45e689e27f3847bbfca9.png" alt="Deploy">
+</a>
+</p>
+</details>
 
 <details><summary>Deploy to VPS</summary>
 <p>
