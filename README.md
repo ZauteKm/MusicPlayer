@@ -54,7 +54,7 @@
 <br/>
 
 <p align="left">
-<a href="https://qovey.com">
+<a href="https://console.qovery.com/login">
      <img height="30px" src="https://img.shields.io/badge/Deploy%20to%20Qovery-blueviolet?style=for-the-badge&logo=qovery">
   </a>
 </p>
