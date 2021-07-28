@@ -10,14 +10,6 @@
 - Make sure you have started a VoiceChat in your Group before deploying.
 
 
-## Deploy to Qovery
-
-<p align="left">
-  <a href="https://qovery.com">
-     <img height="30px" src="https://img.shields.io/badge/Deploy%20To%20Qovery-blueviolet?style=for-the-badge&logo=qovery">
-  </a>
-</p>
-
 ### Pre Requisites 
 - `API_ID` : [my.telegram.org](https://my.telegram.org/app)
 - `API_HASH` : Get from [my.telegram.org](https://my.telegram.org/app)
@@ -64,7 +56,8 @@ python3 main.py
 </p>
 </details>
 
-### Commands
+
+## Commands
 <details><summary>How to Use..!</summary>
 <p>
 <br>
