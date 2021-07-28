@@ -64,10 +64,14 @@ python3 main.py
 <details><summary>How to Use..!</summary>
 <p>
 <br>
-- Enable the worker after deploy the project to Heroku
-- Bot will starts radio automatically in given `CHAT` with given `STREAM_URL` after deploy.(24*7 Music even if heroku restarts, radio stream restarts automatically.)  
+- Enable the worker after deploy the project to Heroku.
+
+- Bot will starts radio automatically in given `CHAT` with given `STREAM_URL` after deploy.(24*7 Music even if heroku restarts, radio stream restarts automatically).
+
 - To play a song use /play as a reply to audio file or a youtube link.
+
 - Use /play <song name> to play song from youtube and /dplay <song name> to play from Deezer.
+
 - Use /help to know about other commands.
 </a>
 </p>
