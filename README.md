@@ -49,17 +49,20 @@
 </p>
 </details>
 
-<details><summary><b>Deploy to Qovery</b></summary>
-<p>
-<pre>
+<details>
+  <summary><b>Deploy on Qovery</b></summary>
+<br/>
+
+<p align="left">
 <a href="https://qovey.com">
      <img height="30px" src="https://img.shields.io/badge/Deploy%20to%20Qovery-blueviolet?style=for-the-badge&logo=qovery">
-</a>
+  </a>
 </p>
+
 </details>
 
 <details>
-  <summary><b>Deploy in your vps</b></summary>
+  <summary><b>Deploy in your VPS</b></summary>
 <br/>
 
 ```sh
@@ -75,9 +78,10 @@ python3 main.py
 ---
 
 ## Commands
-<details><summary>How to Use..!</summary>
+<details><summary><b>How to Use..!</b></summary>
 <p>
 <br>
+
 - Enable the worker after deploy the project to Heroku.
 
 - Bot will starts radio automatically in given `CHAT` with given `STREAM_URL` after deploy.(24*7 Music even if heroku restarts, radio stream restarts automatically).
@@ -94,6 +98,11 @@ python3 main.py
 ---
 
 ## Features
+
+<details>
+  <summary><b>Show the Features</b></summary>
+<br/>
+
 - Playlist, queue
 - Supports Live streaming from youtube
 - Supports both deezer and youtube to search songs.
@@ -101,6 +110,8 @@ python3 main.py
 - Starts Radio after if no songs in playlist.
 - Automatically downloads audio for the first two tracks in the playlist to ensure smooth playing
 - Automatic restart even if heroku restarts.
+
+</details>
 
 ---
 
