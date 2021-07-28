@@ -41,7 +41,6 @@
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 
 <a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/badge/How%20to%20Deploy%20on%20Heroku-blue.svg?logo=Youtube"></a>
-
 <a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/youtube/views/FKaAU4Pr2bw?style=social">
 </a>
 </p>
@@ -65,8 +64,7 @@ python3 main.py
 </p>
 </details>
 
-## Commands
-
+### Commands
 <details><summary>How to Use..!</summary>
 <p>
 <br>
