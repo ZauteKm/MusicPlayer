@@ -42,7 +42,7 @@
 <p>
 <pre>
 <a href="https://qovery.com">
-  <img src="https://telegra.ph/file/a45e689e27f3847bbfca9.png" alt="Deploy">
+  <img src="https://qovery.com/logo" alt="Deploy">
 </a>
 </p>
 </details>
