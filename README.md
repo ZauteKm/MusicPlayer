@@ -18,8 +18,8 @@
 <br/>
 
 ### Pre Requisites 
-- `API_ID` : [my.telegram.org](https://my.telegram.org/app) or [https://telegram.dog/UseTGzKBot](@UseTGzKBot)
-- `API_HASH` : Get from [my.telegram.org](https://my.telegram.org/app) or [https://telegram.dog/UseTGzKBot](@UseTGzKBot)
+- `API_ID` : [my.telegram.org](https://my.telegram.org/app) or (https://telegram.dog/UseTGzKBot)[@UseTGzKBot]
+- `API_HASH` : Get from [my.telegram.org](https://my.telegram.org/app) or (https://telegram.dog/UseTGzKBot)[@UseTGzKBot]
 - `BOT_TOKEN` : Get From [@Botfather](https://telegram.dog/BotFather)
 - `SESSION_STRING` : Generate From here [![GenerateStringName](https://img.shields.io/badge/repl.it-generateStringName-yellowgreen)](https://replit.com/@ZauteKm/GenerateStringSession)
 - `CHAT` : ID of Channel/Group where the bot plays Music.
