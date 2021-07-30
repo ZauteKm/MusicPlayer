@@ -38,6 +38,7 @@ HELP = """
 ▷/clean: Remove unused RAW PCM files.
 ▷/pause: Pause playing.
 ▷/resume: Resume playing.
+▷/volume: Change volume(0-200).
 ▷/mute: Mute in VC.
 ▷/unmute: Unmute in VC.
 ▷/restart: Restarts the Bot.
