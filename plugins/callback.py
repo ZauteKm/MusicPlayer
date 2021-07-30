@@ -49,7 +49,7 @@ HELP = """
 async def cb_handler(client: Client, query: CallbackQuery):
     if query.from_user.id not in Config.ADMINS and query.data != "help":
         await query.answer(
-            "Only Admin can do this!",
+            "Who the hell you are",
             show_alert=True
             )
         return
