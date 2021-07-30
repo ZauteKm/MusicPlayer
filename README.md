@@ -104,6 +104,7 @@ python3 main.py
 <br/>
 
 - Playlist, queue
+- Change VoiceChat title to current playing song name.
 - Supports Live streaming from youtube
 - Supports both deezer and youtube to search songs.
 - Play from telegram file supported.
