@@ -12,6 +12,25 @@
 
 ---
 
+## Features
+
+<details>
+  <summary><b>Show the Features</b></summary>
+<br/>
+
+- Playlist, queue
+- Change VoiceChat title to current playing song name.
+- Supports Live streaming from youtube
+- Supports both deezer and youtube to search songs.
+- Play from telegram file supported.
+- Starts Radio after if no songs in playlist.
+- Automatically downloads audio for the first two tracks in the playlist to ensure smooth playing
+- Automatic restart even if heroku restarts.
+
+</details>
+
+---
+
 ## Variables
 <details>
   <summary><b>See Variables</b></summary>
@@ -93,25 +112,6 @@ python3 main.py
 - Use /help to know about other commands.
 </a>
 </p>
-</details>
-
----
-
-## Features
-
-<details>
-  <summary><b>Show the Features</b></summary>
-<br/>
-
-- Playlist, queue
-- Change VoiceChat title to current playing song name.
-- Supports Live streaming from youtube
-- Supports both deezer and youtube to search songs.
-- Play from telegram file supported.
-- Starts Radio after if no songs in playlist.
-- Automatically downloads audio for the first two tracks in the playlist to ensure smooth playing
-- Automatic restart even if heroku restarts.
-
 </details>
 
 ---
