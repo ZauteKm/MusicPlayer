@@ -55,6 +55,9 @@ class Config:
         REPLY_MESSAGE=REPLY_MESSAGE
     else:
         REPLY_MESSAGE=None
+    EDIT_TITLE = os.environ.get("EDIT_TITLE", True)
+    if EDIT_TITLE == "NO":
+        EDIT_TITLE=None
     DURATION_LIMIT=int(os.environ.get("MAXIMUM_DURATION", 15))
     DELAY = int(os.environ.get("DELAY", 10))
     API_HASH = os.environ.get("API_HASH", "")
@@ -62,4 +65,3 @@ class Config:
     SESSION = os.environ.get("SESSION_STRING", "")
     playlist=[]
     msg = {}
-
