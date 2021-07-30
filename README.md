@@ -78,6 +78,11 @@
   </a>
 </p>
 
+<a href="https://youtu.be/KC4YdpDGQKg"><img src="https://img.shields.io/badge/How%20to%20Deploy%20on%20Qovery-blue.svg?logo=Youtube"></a>
+<a href="https://youtu.be/KC4YdpDGQKg"><img src="https://img.shields.io/youtube/views/KC4YdpDGQKg?style=social">
+</a>
+</p>
+
 </details>
 
 <details>
