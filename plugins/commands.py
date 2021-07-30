@@ -22,6 +22,9 @@ from utils import USERNAME, FFMPEG_PROCESSES, mp
 from config import Config
 import os
 import sys
+import subprocess
+import asyncio
+from signal import SIGINT
 U=USERNAME
 CHAT=Config.CHAT
 msg=Config.msg
@@ -46,6 +49,7 @@ HELP = """
 ▷/clean: Remove unused RAW PCM files.
 ▷/pause: Pause playing.
 ▷/resume: Resume playing.
+▷/volume: Change volume(0-200).
 ▷/mute: Mute in VC.
 ▷/unmute: Unmute in VC.
 ▷/restart: Restarts the Bot.
@@ -101,6 +105,9 @@ async def restart(client, message):
     await message.delete()
     process = FFMPEG_PROCESSES.get(CHAT)
     if process:
-        process.send_signal(signal.SIGTERM) 
+        try:
+            process.send_signal(SIGINT)
+        except subprocess.TimeoutExpired:
+            process.kill()
     os.execl(sys.executable, sys.executable, *sys.argv)
-    
+
