@@ -78,6 +78,7 @@ class MusicPlayer(object):
     def __init__(self):
         self.group_call = GroupCallFactory(USER, GroupCallFactory.MTPROTO_CLIENT_TYPE.PYROGRAM).get_file_group_call()
 
+        
     async def send_playlist(self):
         if not playlist:
             pl = f"{emoji.NO_ENTRY} Empty playlist"
