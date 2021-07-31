@@ -78,7 +78,7 @@ class MusicPlayer(object):
     def __init__(self):
         self.group_call = GroupCallFactory(USER, GroupCallFactory.MTPROTO_CLIENT_TYPE.PYROGRAM).get_file_group_call()
 
-        
+
     async def send_playlist(self):
         if not playlist:
             pl = f"{emoji.NO_ENTRY} Empty playlist"
@@ -190,16 +190,18 @@ class MusicPlayer(object):
         command=["ffmpeg", "-y", "-i", station_stream_url, "-f", "s16le", "-ac", "2",
         "-ar", "48000", "-acodec", "pcm_s16le", group_call.input_filename]
 
+
         process = await asyncio.create_subprocess_exec(
             *command,
             stdout=ffmpeg_log,
             stderr=asyncio.subprocess.STDOUT,
             )
+
         
         FFMPEG_PROCESSES[CHAT] = process
         if RADIO_TITLE:
             await self.edit_title()
-            await sleep(2)
+        await sleep(2)
         while True:
             if CALL_STATUS.get(CHAT):
                 print("Succesfully Joined")
@@ -208,7 +210,7 @@ class MusicPlayer(object):
                 print("Connecting...")
                 await sleep(10)
                 continue
-
+    
     async def stop_radio(self):
         group_call = self.group_call
         if group_call:
@@ -273,16 +275,14 @@ class MusicPlayer(object):
             except Exception as e:
                 print(e)
                 pass
-           ADMIN_LIST[chat]=admins
+            ADMIN_LIST[chat]=admins
 
         return admins
         
 
 mp = MusicPlayer()
 
-
 # pytgcalls handlers
-
 @mp.group_call.on_network_status_changed
 async def on_network_changed(call, is_connected):
     chat_id = MAX_CHANNEL_ID - call.full_chat.id
@@ -296,4 +296,3 @@ async def playout_ended_handler(_, __):
         await mp.start_radio()
     else:
         await mp.skip_current_playing()
-
