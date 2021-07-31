@@ -39,7 +39,6 @@ async def reply(client, message):
             except Exception as e:
                 print(e)
                 pass
-
     except Exception as e:
         print(e)
         pass
