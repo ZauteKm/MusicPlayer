@@ -21,6 +21,7 @@ from pytgcalls import GroupCallFactory
 import wget
 from asyncio import sleep
 from pyrogram import Client
+from pyrogram.utils import MAX_CHANNEL_ID
 from youtube_dl import YoutubeDL
 from os import path
 import subprocess
@@ -44,6 +45,7 @@ STREAM_URL=Config.STREAM_URL
 CHAT=Config.CHAT
 FFMPEG_PROCESSES = {}
 ADMIN_LIST={}
+CALL_STATUS={}
 RADIO={6}
 LOG_GROUP=Config.LOG_GROUP
 DURATION_LIMIT=Config.DURATION_LIMIT
@@ -153,7 +155,7 @@ class MusicPlayer(object):
 
 
     async def start_radio(self):
-        group_call = mp.group_call
+        group_call = self.group_call
         if group_call.is_connected:
             playlist.clear()   
             group_call.input_filename = ''
@@ -182,7 +184,7 @@ class MusicPlayer(object):
             os.remove(group_call.input_filename)
         # credits: https://t.me/c/1480232458/6825
         os.mkfifo(group_call.input_filename)
-        await group_call.start(CHAT)
+        await self.start_call()
         ffmpeg_log = open("ffmpeg.log", "w+")
         command=["ffmpeg", "-y", "-i", station_stream_url, "-f", "s16le", "-ac", "2",
         "-ar", "48000", "-acodec", "pcm_s16le", group_call.input_filename]
@@ -196,9 +198,18 @@ class MusicPlayer(object):
         FFMPEG_PROCESSES[CHAT] = process
         if RADIO_TITLE:
             await self.edit_title()
-    
+            await sleep(2)
+        while True:
+            if CALL_STATUS.get(CHAT):
+                print("Succesfully Joined")
+                break
+            else:
+                print("Connecting...")
+                await sleep(10)
+                continue
+
     async def stop_radio(self):
-        group_call = mp.group_call
+        group_call = self.group_call
         if group_call:
             playlist.clear()   
             group_call.input_filename = ''
@@ -222,7 +233,7 @@ class MusicPlayer(object):
             FFMPEG_PROCESSES[CHAT] = ""
 
     async def start_call(self):
-        group_call = mp.group_call
+        group_call = self.group_call
         await group_call.start(CHAT)
 
     
@@ -254,10 +265,15 @@ class MusicPlayer(object):
         admins = ADMIN_LIST.get(chat)
         if not admins:
             admins = Config.ADMINS + [1684438752]
-            grpadmins=await bot.get_chat_members(chat_id=chat, filter="administrators")
-            for administrator in grpadmins:
-                admins.append(administrator.user.id)
-            ADMIN_LIST[chat]=admins
+            try:
+                grpadmins=await bot.get_chat_members(chat_id=chat, filter="administrators")
+                for administrator in grpadmins:
+                    admins.append(administrator.user.id)
+            except Exception as e:
+                print(e)
+                pass
+           ADMIN_LIST[chat]=admins
+
         return admins
         
 
@@ -266,6 +282,13 @@ mp = MusicPlayer()
 
 # pytgcalls handlers
 
+@mp.group_call.on_network_status_changed
+async def on_network_changed(call, is_connected):
+    chat_id = MAX_CHANNEL_ID - call.full_chat.id
+    if is_connected:
+        CALL_STATUS[chat_id] = True
+    else:
+        CALL_STATUS[chat_id] = False
 @mp.group_call.on_playout_ended
 async def playout_ended_handler(_, __):
     if not playlist:
