@@ -7,3 +7,6 @@ unknown_errors.txt
 *.session-journal
 .env
 test.py
+test1.py
+*.mp4
+*.m4a
