@@ -17,14 +17,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>
 """
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import Client, filters
-import signal
-from utils import USERNAME, FFMPEG_PROCESSES, mp
+from utils import USERNAME, mp
 from config import Config
-import os
-import sys
-import subprocess
-import asyncio
-from signal import SIGINT
 U=USERNAME
 CHAT=Config.CHAT
 msg=Config.msg
