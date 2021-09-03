@@ -13,27 +13,34 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU Affero General Public License for more details.
 """
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.errors import MessageNotModified
 from pyrogram import Client, emoji
-from utils import mp
+from utils import mp, playlist
 from config import Config
-playlist=Config.playlist
 
 HELP = """
 **User Commands:**
 ▷/play **[song name]/[yt link]**: Reply to an audio file.
 ▷/dplay **[song name]:** Play music from Deezer.
 ▷/player:  Show current playing song.
+▷upload: Uploads current playing song as audio file.
 ▷/help: Show help for commands.
 ▷/playlist: Shows the playlist.
 
 **Admin Commands:**
 ▷/skip **[n]** ...  Skip current or n where n >= 2
+▷cplay: Play music from a channel's music files.
+▷/yplay: Play music from a youtube playlist.
 ▷/join: Join voice chat.
-▷/leave: Leave current voice chat
+▷/leave: Leave current voice chat.
+▷/shuffle: Shuffle Playlist.
 ▷/vc: Check which VC is joined.
 ▷/stop: Stop playing.
 ▷/radio: Start Radio.
 ▷/stopradio: Stops Radio Stream.
+▷/clearplaylist: Clear the playlist.
+▷/export: Export current playlist for future use.
+▷/import: Import a previously exported playlist.
 ▷/replay: Play from the beginning.
 ▷/clean: Remove unused RAW PCM files.
 ▷/pause: Pause playing.
