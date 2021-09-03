@@ -12,21 +12,14 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>
 """
-from config import Config
 from pyrogram import Client
 from config import Config
-REPLY_MESSAGE=Config.REPLY_MESSAGE
-if REPLY_MESSAGE is not None:
-    USER = Client(
-        Config.SESSION,
-        Config.API_ID,
-        Config.API_HASH,
-        plugins=dict(root="userplugins")
-        )
-else:
-    USER = Client(
-        Config.SESSION,
-        Config.API_ID,
-        Config.API_HASH
-        )
+
+USER = Client(
+    Config.SESSION,
+    Config.API_ID,
+    Config.API_HASH,
+    plugins=dict(root="userplugins")
+    )
+
 USER.start()
