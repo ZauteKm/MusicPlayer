@@ -1125,7 +1125,7 @@ async def yt_play_list(client, m: Message):
                     k=await m.reply_text(pl, disable_web_page_preview=True)
                     await mp.delete(k)
         else:
-            k=await m.reply("Reply to a Playlist File Or Pass A YouTube Playlist Url along command.\nUse @GetPlayListBot To Get A PlayList File")
+            k=await m.reply("Reply to a Playlist File Or Pass A YouTube Playlist Url along command.\nUse @GetAPlayListBot To Get A PlayList File")
             await mp.delete(k)
             await mp.delete(m)
 
@@ -1154,7 +1154,7 @@ async def import_play_list(client, m: Message):
         await mp.start_call()
     if m.reply_to_message is not None and m.reply_to_message.document:
         if m.reply_to_message.document.file_name != "PlayList.json":
-            k=await m.reply("Invalid PlayList file given. Use @GetPlayListBot to get a playlist file. Or Export your current Playlist using /export.")
+            k=await m.reply("Invalid PlayList file given. Use @GetAPlayListBot to get a playlist file. Or Export your current Playlist using /export.")
             await mp.delete(k)
             await mp.delete(m)
             return
