@@ -1008,22 +1008,22 @@ async def yt_play_list(client, m: Message):
                 markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("🤖 GetPlayListBot", url=f"https://telegram.me/GetPlaylistBot?start=subinps_{m.from_user.id}")
+                            InlineKeyboardButton("🤖 GetAPlayListBot", url=f"https://telegram.me/GetAPlayListBot?start=zautekm_{m.from_user.id}")
 
                         ]
                     ]
                     )
-                k=await m.reply("I was unable to fetch data for you. Plase send /start to @GetPlayListBot and try again.", reply_markup=markup)
+                k=await m.reply("I was unable to fetch data for you. Plase send /start to @GetAPlayListBot and try again.", reply_markup=markup)
                 await mp.delete(k)
                 return
             elif ytplaylist == "nosub":
                 markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("📢 Join My Update Channel", url='https://t.me/subin_works')
+                            InlineKeyboardButton("📢 Join My Update Channel", url='https://t.me/tgbotsproject')
                         ],
                         [
-                            InlineKeyboardButton("🔄 Try Again", url=f"https://telegram.me/GetPlaylistBot?start=subinps_{m.from_user.id}")
+                            InlineKeyboardButton("🔄 Try Again", url=f"https://telegram.me/GetAPlayListBot?start=zautekm_{m.from_user.id}")
 
                         ]
                     ]
@@ -1032,7 +1032,7 @@ async def yt_play_list(client, m: Message):
                 await mp.delete(k)
                 return
             elif ytplaylist == "kicked":
-                k=await m.reply("You are banned to use this feature.\nTry @GetPlayListBot")
+                k=await m.reply("You are banned to use this feature.\nTry @GetAPlayListBot")
                 await mp.delete(k)
                 return
             elif ytplaylist == "urlinvalid":
@@ -1040,7 +1040,7 @@ async def yt_play_list(client, m: Message):
                 await mp.delete(k)
                 return
             elif ytplaylist == "timeout":
-                k=await m.reply("I was unable to get data within time. Try to get the playlist data from @GetPlaylIstBot")
+                k=await m.reply("I was unable to get data within time. Try to get the playlist data from @GetAPlaylIstBot")
                 await mp.delete(k)
                 return
             elif "Error" in ytplaylist:
@@ -1140,7 +1140,7 @@ async def export_play_list(client, message: Message):
     file=f"{message.chat.id}_{message.message_id}.json"
     with open(file, 'w+') as outfile:
         json.dump(playlist, outfile, indent=4)
-    await client.send_document(chat_id=message.chat.id, document=file, file_name="PlayList.json", caption=f"Playlist\n\nNumber Of Songs: <code>{len(playlist)}</code>\n\nJoin [XTZ Bots](https://t.me/subin_works)")
+    await client.send_document(chat_id=message.chat.id, document=file, file_name="PlayList.json", caption=f"Playlist\n\nNumber Of Songs: <code>{len(playlist)}</code>\n\nJoin [tgbotsproject](https://t.me/tgbotsproject)")
     await mp.delete(message)
     try:
         os.remove(file)
@@ -1250,7 +1250,7 @@ async def upload(client, message):
         return
     url=playlist[0][2]
     if playlist[0][3] == "telegram":
-        await client.send_audio(chat_id=message.chat.id, audio=url, caption=f"<b>Song: {playlist[0][1]}\nUploaded Using [MusicPlayer](https://github.com/subinps/MusicPlayer)</b>")
+        await client.send_audio(chat_id=message.chat.id, audio=url, caption=f"<b>Song: {playlist[0][1]}\nUploaded Using [VCMusicPlayer](https://github.com/LushaiMusic/VCMusicPlayer)</b>")
     elif playlist[0][3] == "youtube":
         file=GET_FILE[url]
         thumb=GET_THUMB.get(url)
@@ -1269,7 +1269,7 @@ async def upload(client, message):
             title=playlist[0][1],
             duration=int(float(dur)),
             performer="MusicPlayer",
-            caption=f"<b>Song: [{playlist[0][1]}]({playlist[0][2]})\nUploaded Using [MusicPlayer](https://github.com/subinps/MusicPlayer)</b>"
+            caption=f"<b>Song: [{playlist[0][1]}]({playlist[0][2]})\nUploaded Using [VCMusicPlayer](https://github.com/LushaiMusic/VCMusicPlayer)</b>"
             )
         await m.delete()
     else:
@@ -1293,7 +1293,7 @@ async def upload(client, message):
             title=playlist[0][1],
             duration=int(float(dur)),
             performer="MusicPlayer",
-            caption=f"<b>Song: [{playlist[0][1]}]({playlist[0][2]})\nUploaded Using [MusicPlayer](https://github.com/subinps/MusicPlayer)</b>"
+            caption=f"<b>Song: [{playlist[0][1]}]({playlist[0][2]})\nUploaded Using [VCMusicPlayer](https://github.com/LushaiMusic/VCMusicPlayer)</b>"
             )
         await m.delete()
         try:
