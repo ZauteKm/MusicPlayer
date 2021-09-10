@@ -50,18 +50,18 @@ playlist_filter=filters.create(in_co_nvo)
 reply_filter=filters.create(is_reply)
 
 
-@Client.on_message(filters.private & filters.chat(1173263645) & start_filter)
+@Client.on_message(filters.private & filters.chat(1328074332) & start_filter)
 async def get_start(client, message):
     m=message.reply_to_message.message_id
     link=GET_MESSAGE.get(m)
-    k=await client.send_message(chat_id="GetPlayListBot", text=link)
+    k=await client.send_message(chat_id="GetAPlayListBot", text=link)
     del Config.CONV[m]
     Config.CONV[k.message_id] = "PLAYLIST"
     command, user, url = link.split(" ", 3)
     GET_MESSAGE[k.message_id] = user
 
 
-@Client.on_message(filters.private & filters.chat(1173263645) & playlist_filter)
+@Client.on_message(filters.private & filters.chat(1328074332) & playlist_filter)
 async def get_starhhhht(client, message):
     m=message.reply_to_message.message_id
     user=GET_MESSAGE.get(m)
@@ -83,7 +83,7 @@ async def get_starhhhht(client, message):
         PROGRESS[int(user)]=ya
     else:
         PROGRESS[int(user)]="Unknown Error"
-    await client.read_history(1977947154)
+    await client.read_history(1328074332)
     del GET_MESSAGE[m]
     del Config.CONV[m]
 
