@@ -486,7 +486,7 @@ class MusicPlayer(object):
         try:
             k=await USER.send_message(chat_id="GetAPlayListBot", text="/start")
         except YouBlockedUser:
-            await client.unblock_user("GetPlayListBot")
+            await client.unblock_user("GetAPlayListBot")
             k=await USER.send_message(chat_id="GetAPlayListBot", text="/start")
         except Exception as e:
             return f"Error: {e}"
@@ -504,7 +504,7 @@ class MusicPlayer(object):
                 break
         if Config.DELETE_HISTORY:
             try:
-                await USER.send(DeleteHistory(peer=(await USER.resolve_peer("GetPlayListBot")), max_id=0, revoke=True))
+                await USER.send(DeleteHistory(peer=(await USER.resolve_peer("GetAPlayListBot")), max_id=0, revoke=True))
             except:
                 pass
         if MAX==0:
