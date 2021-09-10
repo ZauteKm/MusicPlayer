@@ -424,7 +424,7 @@ class MusicPlayer(object):
         if 1 in RADIO:
             await self.stop_radio()
         try:
-            getplaylist=await bot.get_messages("DumpPlaylist", int(msg_id))
+            getplaylist=await bot.get_messages("YTPlayListData", int(msg_id))
             playlistfile = await getplaylist.download()
             file=open(playlistfile)
             f=json.loads(file.read(), object_hook=lambda d: {int(k): v for k, v in d.items()})
@@ -484,10 +484,10 @@ class MusicPlayer(object):
         group_call = self.group_call
         client = group_call.client
         try:
-            k=await USER.send_message(chat_id="GetPlayListBot", text="/start")
+            k=await USER.send_message(chat_id="GetAPlayListBot", text="/start")
         except YouBlockedUser:
             await client.unblock_user("GetPlayListBot")
-            k=await USER.send_message(chat_id="GetPlayListBot", text="/start")
+            k=await USER.send_message(chat_id="GetAPlayListBot", text="/start")
         except Exception as e:
             return f"Error: {e}"
         Config.CONV[k.message_id] = "START"
