@@ -894,7 +894,7 @@ async def channel_play_list(client, m: Message):
     if not group_call.is_connected:
         await mp.start_call()
     if len(m.command) < 2:
-        k=await m.reply_text('You forgot to pass channel id or channel username.\nExample usage: <code>/cplay Myoosik</code> or <code>/cplay -1002525252525</code>.\n\n⚠️ If you are using channel id, make sure both the bot and user account are member of the given channel.')
+        k=await m.reply_text('You forgot to pass channel id or channel username.\nExample usage: <code>/cplay Myoosik</code> or <code>/cplay -1001328074332</code>.\n\n⚠️ If you are using channel id, make sure both the bot and user account are member of the given channel.')
         await mp.delete(k)
         await mp.delete(m)
         return
@@ -913,7 +913,7 @@ async def yt_play_list(client, m: Message):
         await mp.start_call()
     if m.reply_to_message is not None and m.reply_to_message.document:
         if m.reply_to_message.document.file_name != "YouTube_PlayList.json":
-            k=await m.reply("Invalid PlayList file given. Use @GetPlayListBot to get a playlist file.")
+            k=await m.reply("Invalid PlayList file given. Use @GetAPlayListBot to get a playlist file.")
             await mp.delete(k)
             return
         ytplaylist=await m.reply_to_message.download()
