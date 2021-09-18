@@ -29,7 +29,7 @@ from signal import SIGINT
 from pyrogram.raw.types import InputGroupCall
 from pyrogram.raw.functions.phone import EditGroupCallTitle
 bot = Client(
-    "VCRadioMusic",
+    "Radio-Music-Bot",
     Config.API_ID,
     Config.API_HASH,
     bot_token=Config.BOT_TOKEN
