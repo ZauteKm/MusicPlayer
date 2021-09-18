@@ -131,7 +131,7 @@ Join Now Telegram [VC Music Live Sets](https://t.me/c/1481808444/131)
   [Telegram API key](https://docs.pyrogram.org/intro/quickstart#enjoy-the-api)
   and a Telegram account.
 - [FFmpeg Python](https://www.ffmpeg.org/)
-- Telegram [String Session](http://t.me/UsePyrogramBot) of the account.
+- Telegram [String Session](https://replit.com/@ZauteKm/GenerateStringSession) of the account.
 - Userbot Needs To Be Admin In The Channel or Group.
 - Must Start A Voice Chat In Channel/Group Before Running The Bot.
 
