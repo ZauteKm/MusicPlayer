@@ -58,7 +58,7 @@ async def yplay(_, message: Message):
     if ADMIN_ONLY == "Y":
         admins = await mp.get_admins(CHAT)
         if message.from_user.id not in admins:
-            m=await message.reply_sticker("CAADBQADsQIAAtILIVYld1n74e3JuQI")
+            m=await message.reply_sticker("CAADBQAD7gIAAq-1OVf2ov3Ge_ngpxYE")
             await mp.delete(m)
             await mp.delete(message)
             return
@@ -214,7 +214,7 @@ async def yplay(_, message: Message):
         try:
             thumb = info["thumbnail"]
         except:
-            thumb="https://telegra.ph/file/181242eab5c4a74916d01.jpg"
+            thumb="https://telegra.ph/file/d925c78d84dc4aff53b45.jpg"
             pass
         if int(duration) > DURATION_LIMIT:
             k=await message.reply_text(f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided video is {duration} minute(s)")
@@ -296,7 +296,7 @@ async def deezer(_, message):
     if ADMIN_ONLY == "Y":
         admins = await mp.get_admins(CHAT)
         if message.from_user.id not in admins:
-            k=await message.reply_sticker("CAADBQADsQIAAtILIVYld1n74e3JuQI")
+            k=await message.reply_sticker("CAADBQAD7gIAAq-1OVf2ov3Ge_ngpxYE")
             await mp.delete(k)
             await mp.delete(message)
             return
@@ -336,7 +336,7 @@ async def deezer(_, message):
                 try:
                     thumb=song.get("image")
                 except:
-                    thumb="https://telegra.ph/file/181242eab5c4a74916d01.jpg"
+                    thumb="https://telegra.ph/file/d925c78d84dc4aff53b45.jpg"
                     pass
                 GET_THUMB[url] = thumb
                 now = datetime.now()
@@ -423,7 +423,7 @@ async def deezer(_, message):
             try:
                 thumb=a.get("image")
             except:
-                thumb="https://telegra.ph/file/181242eab5c4a74916d01.jpg"
+                thumb="https://telegra.ph/file/d925c78d84dc4aff53b45.jpg"
                 pass
             GET_THUMB[url] = thumb
         except:
@@ -1247,12 +1247,12 @@ async def upload(client, message):
         return
     url=playlist[0][2]
     if playlist[0][3] == "telegram":
-        await client.send_audio(chat_id=message.chat.id, audio=url, caption=f"<b>Song: {playlist[0][1]}\nUploaded Using [VCMusicPlayer](https://github.com/LushaiMusic/VCMusicPlayer)</b>")
+        await client.send_audio(chat_id=message.chat.id, audio=url, caption=f"<b>Song: {playlist[0][1]}\nUploaded Using [Radio-Music-Bot](https://github.com/ZauteKm/Radio-Music-Bot)</b>")
     elif playlist[0][3] == "youtube":
         file=GET_FILE[url]
         thumb=GET_THUMB.get(url)
         if thumb is None:
-            thumb="https://telegra.ph/file/181242eab5c4a74916d01.jpg"
+            thumb="https://telegra.ph/file/d925c78d84dc4aff53b45.jpg"
         response = requests.get(thumb, allow_redirects=True)
         open(f"{playlist[0][5]}.jpeg", 'wb').write(response.content)
         await message.reply_chat_action("upload_document")
@@ -1266,14 +1266,14 @@ async def upload(client, message):
             title=playlist[0][1],
             duration=int(float(dur)),
             performer="MusicPlayer",
-            caption=f"<b>Song: [{playlist[0][1]}]({playlist[0][2]})\nUploaded Using [VCMusicPlayer](https://github.com/LushaiMusic/VCMusicPlayer)</b>"
+            caption=f"<b>Song: [{playlist[0][1]}]({playlist[0][2]})\nUploaded Using [Radio-Music-Bot](https://github.com/ZauteKm/Radio-Music-Bot)</b>"
             )
         await m.delete()
     else:
         file=GET_FILE[url]
         thumb=GET_THUMB.get(url)
         if thumb is None:
-            thumb="https://telegra.ph/file/181242eab5c4a74916d01.jpg"
+            thumb="https://telegra.ph/file/d925c78d84dc4aff53b45.jpg"
         response = requests.get(thumb, allow_redirects=True)
         open(f"{playlist[0][5]}.jpeg", 'wb').write(response.content)
         await message.reply_chat_action("upload_document")
