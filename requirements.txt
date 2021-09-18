@@ -1,12 +1,11 @@
-Pyrogram==1.2.9
-TgCrypto==1.2.2
+Pyrogram
+TgCrypto
 ffmpeg-python
 psutil
 pytgcalls[pyrogram]
 wheel
-python-arq
-aiohttp==3.6.2
 youtube_dl
 youtube_search_python
 youtube_search
 wget
+requests
