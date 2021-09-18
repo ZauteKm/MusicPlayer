@@ -1,4 +1,4 @@
-# VCMusicPlayer v3.0
+# Radio-Music-Bot
 
 - An Telegram Bot to Play Radio/Music in Channel or Group Voice Chats.
 - A Telegram Bot to Play Audio in Voice Chats With Youtube and Deezer support.
@@ -59,7 +59,7 @@
 <details><summary><b>Deploy to Heroku</b></summary>
 <p>
 <br>
-<a href="https://heroku.com/deploy?template=https://github.com/LushaiMusic/VCMusicPlayer">
+<a href="https://heroku.com/deploy?template=https://github.com/ZauteKm/Radio-Music-Bot">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 
 <a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/badge/How%20to%20Deploy%20on%20Heroku-blue.svg?logo=Youtube"></a>
@@ -90,8 +90,8 @@
 <br/>
 
 ```sh
-git clone https://github.com/LushaiMusic/VCMusicPlayer
-cd VCMusicPlayer
+git clone https://github.com/ZauteKm/Radio-Music-Bot
+cd Radio-Music-Bot
 pip3 install -r requirements.txt
 # <Create Variables appropriately>
 python3 main.py
@@ -137,21 +137,20 @@ Join Now Telegram [VC Music Live Sets](https://t.me/c/1481808444/131)
 
 ## License
 ```sh
-VC Music Player, Telegram Voice Chat Userbot
-Copyright (C) 2021  Zaute Km
+#!/usr/bin/env python3
+# Copyright (C) @ZauteKm
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ```
 
 ---
