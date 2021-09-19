@@ -1265,7 +1265,7 @@ async def upload(client, message):
             thumb=f"{playlist[0][5]}.jpeg",
             title=playlist[0][1],
             duration=int(float(dur)),
-            performer="MusicPlayer",
+            performer="Radio-Music-Bot",
             caption=f"<b>Song: [{playlist[0][1]}]({playlist[0][2]})\nUploaded Using [Radio-Music-Bot](https://github.com/ZauteKm/Radio-Music-Bot)</b>"
             )
         await m.delete()
