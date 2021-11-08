@@ -59,7 +59,7 @@ async def yplay(_, message: Message):
     if ADMIN_ONLY == "Y":
         admins = await mp.get_admins(CHAT)
         if message.from_user.id not in admins:
-            m=await message.reply_sticker("CAADBQADsQIAAtILIVYld1n74e3JuQI")
+            m=await message.reply_sticker("CAADBQAD7gIAAq-1OVf2ov3Ge_ngpxYE")
             await mp.delete(m)
             await mp.delete(message)
             return
