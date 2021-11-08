@@ -12,6 +12,7 @@
 
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 import asyncio
 import os
 from youtube_dl import YoutubeDL
@@ -58,7 +59,7 @@ async def yplay(_, message: Message):
     if ADMIN_ONLY == "Y":
         admins = await mp.get_admins(CHAT)
         if message.from_user.id not in admins:
-            m=await message.reply_sticker("CAADBQAD7gIAAq-1OVf2ov3Ge_ngpxYE")
+            m=await message.reply_sticker("CAADBQADsQIAAtILIVYld1n74e3JuQI")
             await mp.delete(m)
             await mp.delete(message)
             return
@@ -214,7 +215,7 @@ async def yplay(_, message: Message):
         try:
             thumb = info["thumbnail"]
         except:
-            thumb="https://telegra.ph/file/d925c78d84dc4aff53b45.jpg"
+            thumb="https://telegra.ph/file/402ad9035855b68cf3106.png"
             pass
         if int(duration) > DURATION_LIMIT:
             k=await message.reply_text(f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided video is {duration} minute(s)")
@@ -296,7 +297,7 @@ async def deezer(_, message):
     if ADMIN_ONLY == "Y":
         admins = await mp.get_admins(CHAT)
         if message.from_user.id not in admins:
-            k=await message.reply_sticker("CAADBQAD7gIAAq-1OVf2ov3Ge_ngpxYE")
+            k=await message.reply_sticker("CAADBQADsQIAAtILIVYld1n74e3JuQI")
             await mp.delete(k)
             await mp.delete(message)
             return
@@ -336,7 +337,7 @@ async def deezer(_, message):
                 try:
                     thumb=song.get("image")
                 except:
-                    thumb="https://telegra.ph/file/d925c78d84dc4aff53b45.jpg"
+                    thumb="https://telegra.ph/file/402ad9035855b68cf3106.png"
                     pass
                 GET_THUMB[url] = thumb
                 now = datetime.now()
@@ -423,7 +424,7 @@ async def deezer(_, message):
             try:
                 thumb=a.get("image")
             except:
-                thumb="https://telegra.ph/file/d925c78d84dc4aff53b45.jpg"
+                thumb="https://telegra.ph/file/402ad9035855b68cf3106.png"
                 pass
             GET_THUMB[url] = thumb
         except:
@@ -891,7 +892,7 @@ async def channel_play_list(client, m: Message):
     if not group_call.is_connected:
         await mp.start_call()
     if len(m.command) < 2:
-        k=await m.reply_text('You forgot to pass channel id or channel username.\nExample usage: <code>/cplay Myoosik</code> or <code>/cplay -1001328074332</code>.\n\n⚠️ If you are using channel id, make sure both the bot and user account are member of the given channel.')
+        k=await m.reply_text('You forgot to pass channel id or channel username.\nExample usage: <code>/cplay Myoosik</code> or <code>/cplay -1002525252525</code>.\n\n⚠️ If you are using channel id, make sure both the bot and user account are member of the given channel.')
         await mp.delete(k)
         await mp.delete(m)
         return
@@ -910,7 +911,7 @@ async def yt_play_list(client, m: Message):
         await mp.start_call()
     if m.reply_to_message is not None and m.reply_to_message.document:
         if m.reply_to_message.document.file_name != "YouTube_PlayList.json":
-            k=await m.reply("Invalid PlayList file given. Use @GetAPlayListBot to get a playlist file.")
+            k=await m.reply("Invalid PlayList file given. Use @GetPlayListBot to get a playlist file.")
             await mp.delete(k)
             return
         ytplaylist=await m.reply_to_message.download()
@@ -1005,22 +1006,22 @@ async def yt_play_list(client, m: Message):
                 markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("🤖 GetAPlayListBot", url=f"https://telegram.me/GetAPlayListBot?start=zautekm_{m.from_user.id}")
+                            InlineKeyboardButton("🤖 GetPlayListBot", url=f"https://telegram.me/GetPlaylistBot?start=subinps_{m.from_user.id}")
 
                         ]
                     ]
                     )
-                k=await m.reply("I was unable to fetch data for you. Plase send /start to @GetAPlayListBot and try again.", reply_markup=markup)
+                k=await m.reply("I was unable to fetch data for you. Plase send /start to @GetPlayListBot and try again.", reply_markup=markup)
                 await mp.delete(k)
                 return
             elif ytplaylist == "nosub":
                 markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("📢 Join My Update Channel", url='https://t.me/tgbotsproject')
+                            InlineKeyboardButton("📢 Join My Update Channel", url='https://t.me/subin_works')
                         ],
                         [
-                            InlineKeyboardButton("🔄 Try Again", url=f"https://telegram.me/GetAPlayListBot?start=zautekm_{m.from_user.id}")
+                            InlineKeyboardButton("🔄 Try Again", url=f"https://telegram.me/GetPlaylistBot?start=subinps_{m.from_user.id}")
 
                         ]
                     ]
@@ -1029,7 +1030,7 @@ async def yt_play_list(client, m: Message):
                 await mp.delete(k)
                 return
             elif ytplaylist == "kicked":
-                k=await m.reply("You are banned to use this feature.\nTry @GetAPlayListBot")
+                k=await m.reply("You are banned to use this feature.\nTry @GetPlayListBot")
                 await mp.delete(k)
                 return
             elif ytplaylist == "urlinvalid":
@@ -1037,7 +1038,7 @@ async def yt_play_list(client, m: Message):
                 await mp.delete(k)
                 return
             elif ytplaylist == "timeout":
-                k=await m.reply("I was unable to get data within time. Try to get the playlist data from @GetAPlaylIstBot")
+                k=await m.reply("I was unable to get data within time. Try to get the playlist data from @GetPlaylIstBot")
                 await mp.delete(k)
                 return
             elif "Error" in ytplaylist:
@@ -1122,7 +1123,7 @@ async def yt_play_list(client, m: Message):
                     k=await m.reply_text(pl, disable_web_page_preview=True)
                     await mp.delete(k)
         else:
-            k=await m.reply("Reply to a Playlist File Or Pass A YouTube Playlist Url along command.\nUse @GetAPlayListBot To Get A PlayList File")
+            k=await m.reply("Reply to a Playlist File Or Pass A YouTube Playlist Url along command.\nUse @GetPlayListBot To Get A PlayList File")
             await mp.delete(k)
             await mp.delete(m)
 
@@ -1137,7 +1138,7 @@ async def export_play_list(client, message: Message):
     file=f"{message.chat.id}_{message.message_id}.json"
     with open(file, 'w+') as outfile:
         json.dump(playlist, outfile, indent=4)
-    await client.send_document(chat_id=message.chat.id, document=file, file_name="PlayList.json", caption=f"Playlist\n\nNumber Of Songs: <code>{len(playlist)}</code>\n\nJoin [tgbotsproject](https://t.me/tgbotsproject)")
+    await client.send_document(chat_id=message.chat.id, document=file, file_name="PlayList.json", caption=f"Playlist\n\nNumber Of Songs: <code>{len(playlist)}</code>\n\nJoin [XTZ Bots](https://t.me/subin_works)")
     await mp.delete(message)
     try:
         os.remove(file)
@@ -1151,7 +1152,7 @@ async def import_play_list(client, m: Message):
         await mp.start_call()
     if m.reply_to_message is not None and m.reply_to_message.document:
         if m.reply_to_message.document.file_name != "PlayList.json":
-            k=await m.reply("Invalid PlayList file given. Use @GetAPlayListBot to get a playlist file. Or Export your current Playlist using /export.")
+            k=await m.reply("Invalid PlayList file given. Use @GetPlayListBot to get a playlist file. Or Export your current Playlist using /export.")
             await mp.delete(k)
             await mp.delete(m)
             return
@@ -1247,12 +1248,12 @@ async def upload(client, message):
         return
     url=playlist[0][2]
     if playlist[0][3] == "telegram":
-        await client.send_audio(chat_id=message.chat.id, audio=url, caption=f"<b>Song: {playlist[0][1]}\nUploaded Using [Radio-Music-Bot](https://github.com/ZauteKm/Radio-Music-Bot)</b>")
+        await client.send_audio(chat_id=message.chat.id, audio=url, caption=f"<b>Song: {playlist[0][1]}\nUploaded Using [MusicPlayer](https://github.com/ZauteKm/MusicPlayer)</b>")
     elif playlist[0][3] == "youtube":
         file=GET_FILE[url]
         thumb=GET_THUMB.get(url)
         if thumb is None:
-            thumb="https://telegra.ph/file/d925c78d84dc4aff53b45.jpg"
+            thumb="https://telegra.ph/file/181242eab5c4a74916d01.jpg"
         response = requests.get(thumb, allow_redirects=True)
         open(f"{playlist[0][5]}.jpeg", 'wb').write(response.content)
         await message.reply_chat_action("upload_document")
@@ -1265,15 +1266,15 @@ async def upload(client, message):
             thumb=f"{playlist[0][5]}.jpeg",
             title=playlist[0][1],
             duration=int(float(dur)),
-            performer="Radio-Music-Bot",
-            caption=f"<b>Song: [{playlist[0][1]}]({playlist[0][2]})\nUploaded Using [Radio-Music-Bot](https://github.com/ZauteKm/Radio-Music-Bot)</b>"
+            performer="MusicPlayer",
+            caption=f"<b>Song: [{playlist[0][1]}]({playlist[0][2]})\nUploaded Using [MusicPlayer](https://github.com/ZauteKm/MusicPlayer)</b>"
             )
         await m.delete()
     else:
         file=GET_FILE[url]
         thumb=GET_THUMB.get(url)
         if thumb is None:
-            thumb="https://telegra.ph/file/d925c78d84dc4aff53b45.jpg"
+            thumb="https://telegra.ph/file/402ad9035855b68cf3106.png"
         response = requests.get(thumb, allow_redirects=True)
         open(f"{playlist[0][5]}.jpeg", 'wb').write(response.content)
         await message.reply_chat_action("upload_document")
@@ -1290,7 +1291,7 @@ async def upload(client, message):
             title=playlist[0][1],
             duration=int(float(dur)),
             performer="MusicPlayer",
-            caption=f"<b>Song: [{playlist[0][1]}]({playlist[0][2]})\nUploaded Using [VCMusicPlayer](https://github.com/LushaiMusic/VCMusicPlayer)</b>"
+            caption=f"<b>Song: [{playlist[0][1]}]({playlist[0][2]})\nUploaded Using [MusicPlayer](https://github.com/ZauteKm/MusicPlayer)</b>"
             )
         await m.delete()
         try:
@@ -1319,9 +1320,9 @@ async def not_chat(_, m: Message):
             InlineKeyboardButton('🆘 Help & Commands 🆘', callback_data='help'),       
         ],
         [
-            InlineKeyboardButton('👨‍💻 Developer', url='https://t.me/c/1417456571/580'),
-            InlineKeyboardButton('Channel 📢', url='https://t.me/c/1481808444/131')
+            InlineKeyboardButton('👨‍💻 Developer', url='https://t.me/c/ZauteKm/580'),
+            InlineKeyboardButton('Channel 📢', url='https://t.me/c/josprojects/131')
         ]
         ]
-    k=await m.reply("<b>You can't use this bot in this group, for that you have to make your own bot from the [Soure Code 👈](https://github.com/ZauteKm/Radio-Music-Bot) below.</b>", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(buttons))
+    k=await m.reply("<b>You can't use this bot in this group, for that you have to make your own bot from the [SOURCE CODE](https://github.com/ZauteKm/MusicPlayer) below.</b>", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(buttons))
     await mp.delete(m)
