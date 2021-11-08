@@ -37,7 +37,7 @@ except ModuleNotFoundError:
 
 CHAT=Config.CHAT
 bot = Client(
-    "RadioMusicBot",
+    "Musicplayer",
     Config.API_ID,
     Config.API_HASH,
     bot_token=Config.BOT_TOKEN,
