@@ -59,7 +59,7 @@
 <details><summary><b>Deploy to Heroku</b></summary>
 <p>
 <br>
-<a href="https://heroku.com/deploy?template=https://github.com/ZauteKm/Radio-Music-Bot">
+<a href="https://heroku.com/deploy?template=https://github.com/ZauteKm/MusicPlayer">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 
 <a href="https://youtu.be/FKaAU4Pr2bw"><img src="https://img.shields.io/badge/How%20to%20Deploy%20on%20Heroku-blue.svg?logo=Youtube"></a>
@@ -90,8 +90,8 @@
 <br/>
 
 ```sh
-git clone https://github.com/ZauteKm/Radio-Music-Bot
-cd Radio-Music-Bot
+git clone https://github.com/ZauteKm/MusicPlayer
+cd MusicPlayer
 pip3 install -r requirements.txt
 # <Create Variables appropriately>
 python3 main.py
