@@ -1,4 +1,4 @@
-# Radio-Music-Bot
+# MusicPlayer
 
 - An Telegram Bot to Play Radio/Music in Channel or Group Voice Chats.
 - A Telegram Bot to Play Audio in Voice Chats With Youtube and Deezer support.
